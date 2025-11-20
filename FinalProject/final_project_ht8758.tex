@@ -1,0 +1,631 @@
+% ============================================================================
+% Credit Card Default Prediction - LaTeX Paper Template
+% Author: [Your Name]
+% Course: [Course Name]
+% Date: \today
+% ============================================================================
+
+\documentclass[12pt,letterpaper]{article}
+
+% ============================================================================
+% PACKAGES
+% ============================================================================
+
+% Page layout
+\usepackage[margin=1in]{geometry}
+\usepackage{setspace}
+
+% Fonts and text
+\usepackage{times}  % Times New Roman font
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+% Math and symbols
+\usepackage{amsmath,amssymb}
+
+% Graphics and figures
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{subcaption}
+
+% Tables
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{array}
+
+% Colors
+\usepackage{xcolor}
+
+% Hyperlinks
+\usepackage[hidelinks]{hyperref}
+
+% Bibliography
+\usepackage[style=apa,backend=biber]{biblatex}
+\addbibresource{references.bib}
+
+% Line spacing (1.5)
+\setstretch{1.5}
+
+% Paragraph settings
+\setlength{\parindent}{0.5in}
+\setlength{\parskip}{0pt}
+
+% ============================================================================
+% TITLE PAGE
+% ============================================================================
+
+\title{\textbf{Predicting Credit Card Default Risk with Machine Learning: A Comparative Analysis of Model Performance and Explainability}}
+
+\author{
+	Hoang To \\
+	ht8758 \\
+	University of Texas at Austin \\
+	\texttt{hto@utexas.edu}
+}
+
+\date{\today}
+
+% ============================================================================
+% DOCUMENT
+% ============================================================================
+
+\begin{document}
+	
+	\maketitle	
+
+	\newpage
+	
+	% ============================================================================
+	% ABSTRACT
+	% ============================================================================
+	
+	\begin{abstract}
+		\noindent
+		% Write your abstract here (200-250 words)
+		% Include:
+		% - Research problem/motivation
+		% - Methods used (5 ML models)
+		% - Key findings (best model, performance gap)
+		% - Main conclusion (interpretability tradeoff)
+		
+		[Your abstract text here. This should be a concise summary of your entire paper, written after you complete the other sections. Include your research questions, methodology, key findings, and conclusions.]
+		
+		\noindent
+		\textbf{Keywords:} Credit risk, machine learning, explainable AI, SHAP, default prediction, interpretability
+	\end{abstract}
+	
+	\newpage
+	
+	% ============================================================================
+	% 1. INTRODUCTION
+	% ============================================================================
+	
+	\section{Introduction}
+	
+	% Background and Motivation (2-3 paragraphs)
+	The credit card industry operates at the intersection of risk management and customer access to credit. Financial institutions must accurately predict which borrowers are likely to default while simultaneously maintaining transparency in their lending decisions. This dual challenge has intensified with the advancement of machine learning techniques that offer superior predictive accuracy but often lack the interpretability required for regulatory compliance.
+	
+	% Add your motivation paragraph here - mention your work in fintech
+	[Expand on your personal motivation for this research, your experience in the fintech industry, and the specific problem you observed...]
+	
+	% The Regulatory Challenge (1-2 paragraphs)
+	The Equal Credit Opportunity Act (ECOA) mandates that lenders provide specific reasons for adverse credit decisions \parencite{ecoa1974}. This regulatory requirement has created a significant barrier to adopting advanced machine learning models, particularly neural networks, which are often considered ``black boxes'' due to their complex internal mechanisms \parencite{hurley2016credit}. As a result, many financial institutions continue to rely on traditional logistic regression models despite potentially sacrificing predictive performance.
+	
+	% Research Questions
+	This study addresses three fundamental research questions:
+	
+	\begin{enumerate}
+		\item Which machine learning models achieve the highest predictive accuracy for credit card default prediction?
+		\item What is the quantifiable performance cost when financial institutions choose interpretable models over complex alternatives?
+		\item Can SHAP (SHapley Additive exPlanations) provide sufficient interpretability for complex models to meet regulatory requirements?
+	\end{enumerate}
+	
+	% Contribution and Paper Structure
+	By comparing five distinct machine learning models—ranging from highly interpretable (logistic regression) to complex ``black box'' models (neural networks)—and employing SHAP values for explainability analysis, this research quantifies the interpretability-performance tradeoff that financial institutions face. The findings provide actionable insights for practitioners navigating the balance between model accuracy and regulatory compliance.
+	
+	The remainder of this paper is structured as follows: Section 2 reviews the relevant literature on credit scoring, machine learning applications, and explainable AI. Section 3 describes the methodology, including model selection and evaluation metrics. Section 4 details the dataset and preprocessing steps. Section 5 presents the empirical results. Section 6 discusses the findings and their implications. Section 7 concludes with recommendations and future research directions.
+	
+	% ============================================================================
+	% 2. LITERATURE REVIEW
+	% ============================================================================
+	
+	\section{Literature Review}
+	
+	\subsection{Traditional Credit Scoring Methods}
+	
+	Credit scoring has been a cornerstone of lending decisions for decades. Traditional approaches, particularly FICO scores and logistic regression models, have dominated the industry due to their interpretability and regulatory acceptance \parencite{baesens2003benchmarking}. These methods rely on a limited set of financial and demographic variables to predict default probability, with coefficients that can be directly interpreted as the marginal effect of each variable.
+	
+	[Expand on the history, strengths, and limitations of traditional methods...]
+	
+	\subsection{Machine Learning in Credit Risk Assessment}
+	
+	The application of machine learning to credit risk has evolved significantly over the past two decades. Early comparative studies demonstrated that ensemble methods and neural networks could outperform traditional logistic regression \parencite{khandani2010consumer}. \textcite{lessmann2015benchmarking} conducted a comprehensive benchmark of classification algorithms for credit scoring, finding that ensemble methods consistently ranked among the top performers across multiple datasets.
+	
+	More recent research has explored the application of specific ML techniques to credit default prediction. \textcite{brown2012experimental} examined the challenges of class imbalance in credit scoring datasets, while \textcite{bellotti2013forecasting} focused on dynamic models for credit card default prediction.
+	
+	[Continue with more literature on ML applications in credit risk...]
+	
+	\subsection{Ensemble Methods and Deep Learning}
+	
+	Random forests \parencite{breiman2001random} and gradient boosting machines \parencite{friedman2001greedy} have emerged as powerful ensemble methods for credit scoring. \textcite{wang2011comparative} found that ensemble learning approaches consistently outperformed single classifiers in credit risk assessment. XGBoost, a scalable tree boosting system \parencite{chen2016xgboost}, has become particularly popular due to its performance and built-in handling of missing values.
+	
+	Deep learning applications in credit risk have shown promising results but face adoption challenges. \textcite{sirignano2016deep} demonstrated the potential of deep learning for mortgage risk prediction, while \textcite{hamori2018ensemble} compared ensemble learning with deep learning approaches for default risk analysis.
+	
+	[Add more discussion on neural networks in finance...]
+	
+	\subsection{Explainable AI in Financial Services}
+	
+	The need for model interpretability in regulated industries has driven significant research in explainable AI (XAI). \textcite{lundberg2017unified} introduced SHAP (SHapley Additive exPlanations), a unified framework for interpreting model predictions based on cooperative game theory. This approach assigns each feature an importance value for a particular prediction, providing both local (individual prediction) and global (overall model) explanations.
+	
+	\textcite{lundberg2020local} extended this work by demonstrating how SHAP values can provide global understanding of tree-based models. \textcite{bussmann2021explainable} specifically examined explainable machine learning in credit risk management, arguing that SHAP and similar techniques could bridge the gap between model performance and regulatory requirements.
+	
+	[Expand on XAI applications in lending and regulatory perspectives...]
+	
+	\subsection{Research Gap}
+	
+	While extensive research has compared ML models for credit scoring and explored explainability techniques separately, few studies have systematically quantified the interpretability-performance tradeoff across a spectrum of models while applying SHAP analysis consistently. This research addresses this gap by providing empirical evidence of the performance cost of interpretability and evaluating whether SHAP can make complex models sufficiently explainable for regulatory compliance.
+	
+	% ============================================================================
+	% 3. METHODOLOGY
+	% ============================================================================
+	
+	\section{Methodology}
+	
+	\subsection{Research Design}
+	
+	This study employs a comparative experimental approach to evaluate five machine learning models across the interpretability spectrum. The research follows a quantitative methodology with cross-validation and standardized evaluation metrics to ensure robust and reproducible results.
+	
+	\subsection{Model Selection}
+	
+	Five machine learning models were selected to represent different levels of interpretability and modeling approaches:
+	
+	\subsubsection{Tier 1: Highly Interpretable Models}
+	
+	\textbf{Logistic Regression:} Selected as the baseline model due to its widespread use in the credit industry and direct coefficient interpretation. Logistic regression provides odds ratios for each feature, making it straightforward to explain predictions to regulators and customers.
+	
+	\textbf{Decision Tree:} Chosen for its visual interpretability and rule-based decision structure. Decision trees can be directly translated into if-then rules, offering complete transparency in the decision-making process.
+	
+	\subsubsection{Tier 2: Moderately Interpretable Models}
+	
+	\textbf{Random Forest:} An ensemble method that aggregates predictions from multiple decision trees. While individual tree predictions are interpretable, the ensemble nature introduces complexity. However, feature importance measures provide global interpretability.
+	
+	\textbf{XGBoost (Gradient Boosting):} A state-of-the-art gradient boosting implementation known for high performance in structured data tasks. XGBoost provides feature importance scores and supports SHAP analysis, offering a balance between performance and explainability.
+	
+	\subsubsection{Tier 3: Low Interpretability Models}
+	
+	\textbf{Neural Network:} A feedforward neural network with multiple hidden layers represents the ``black box'' end of the spectrum. Neural networks can capture complex non-linear relationships but lack inherent interpretability without external explanation methods like SHAP.
+	
+	\subsection{Evaluation Metrics}
+	
+	Model performance was assessed using multiple classification metrics:
+	
+	\begin{itemize}
+		\item \textbf{Accuracy:} Overall proportion of correct predictions
+		\item \textbf{Precision:} Ability to minimize false positives (incorrectly predicting default)
+		\item \textbf{Recall:} Ability to identify actual defaults
+		\item \textbf{F1-Score:} Harmonic mean of precision and recall
+		\item \textbf{ROC-AUC:} Area under the receiver operating characteristic curve, used as the primary metric for model comparison due to its robustness to class imbalance
+	\end{itemize}
+	
+	ROC-AUC was selected as the primary metric because it evaluates model performance across all classification thresholds and is less sensitive to class imbalance than accuracy \parencite{he2009learning}.
+	
+	\subsection{Hyperparameter Tuning}
+	
+	For each model (except logistic regression), hyperparameter optimization was performed using GridSearchCV with 5-fold stratified cross-validation. Stratified folds maintain class distribution in each fold, which is crucial for imbalanced datasets. The optimization metric was ROC-AUC to identify configurations that maximize discriminative ability.
+	
+	\subsection{SHAP Implementation}
+	
+	SHAP values were calculated for all models to enable fair comparison of explainability:
+	
+	\begin{itemize}
+		\item \textbf{LinearExplainer:} For logistic regression, computing exact SHAP values from model coefficients
+		\item \textbf{TreeExplainer:} For decision tree, random forest, and XGBoost, leveraging tree structure for efficient computation
+		\item \textbf{KernelExplainer:} For neural networks, using model-agnostic approximation on sampled background data
+	\end{itemize}
+	
+	SHAP analysis provides both global feature importance (which features matter most overall) and local explanations (why a specific prediction was made), enabling assessment of whether complex models can achieve sufficient explainability \parencite{lundberg2017unified}.
+	
+	% ============================================================================
+	% 4. DATA AND PREPROCESSING
+	% ============================================================================
+	
+	\section{Data and Preprocessing}
+	
+	\subsection{Dataset Description}
+	
+	This study utilizes the Loan Default Prediction dataset from Kaggle, which contains borrower information for credit default prediction. The dataset includes [insert sample size] observations with [insert features] features and a binary target variable indicating default status.
+	
+	% Add a table of features
+	\begin{table}[H]
+		\centering
+		\caption{Dataset Features}
+		\label{tab:features}
+		\begin{tabular}{lll}
+			\toprule
+			\textbf{Feature} & \textbf{Type} & \textbf{Description} \\
+			\midrule
+			Age & Numerical & Age of the borrower \\
+			Income & Numerical & Annual income \\
+			LoanAmount & Numerical & Amount of money borrowed \\
+			CreditScore & Numerical & Credit score (creditworthiness) \\
+			MonthsEmployed & Numerical & Months of employment \\
+			NumCreditLines & Numerical & Number of open credit lines \\
+			InterestRate & Numerical & Loan interest rate \\
+			LoanTerm & Numerical & Loan term in months \\
+			DTIRatio & Numerical & Debt-to-Income ratio \\
+			Education & Categorical & Highest education level \\
+			EmploymentType & Categorical & Employment status \\
+			MaritalStatus & Categorical & Marital status \\
+			HasMortgage & Categorical & Mortgage status (Yes/No) \\
+			HasDependents & Categorical & Has dependents (Yes/No) \\
+			LoanPurpose & Categorical & Purpose of the loan \\
+			HasCoSigner & Categorical & Co-signer status (Yes/No) \\
+			\bottomrule
+		\end{tabular}
+	\end{table}
+	
+	\subsection{Exploratory Data Analysis}
+	
+	The dataset exhibits [describe class distribution, e.g., ``a default rate of X\%, indicating moderate class imbalance'']. Key observations from exploratory analysis include:
+	
+	% Add bullet points about your EDA findings
+	\begin{itemize}
+		\item Default rate: [X\%]
+		\item [Notable patterns in feature distributions]
+		\item [Correlations between features]
+		\item [Any data quality issues]
+	\end{itemize}
+	
+	% Consider adding a figure showing default distribution
+	% \begin{figure}[H]
+		% \centering
+		% \includegraphics[width=0.6\textwidth]{figures/default_distribution.png}
+		% \caption{Distribution of Default vs Non-Default Cases}
+		% \label{fig:default_dist}
+		% \end{figure}
+	
+	\subsection{Data Preprocessing}
+	
+	The following preprocessing steps were applied:
+	
+	\begin{enumerate}
+		\item \textbf{Train-Test Split:} The data was split 70\% for training and 30\% for testing prior to any preprocessing to prevent data leakage.
+		
+		\item \textbf{Categorical Encoding:} One-hot encoding was applied to all categorical variables (Education, EmploymentType, MaritalStatus, HasMortgage, HasDependents, LoanPurpose, HasCoSigner), creating binary indicator variables while dropping the first category to avoid multicollinearity.
+		
+		\item \textbf{Feature Scaling:} Numerical features were standardized using StandardScaler to have mean 0 and standard deviation 1. This is particularly important for logistic regression and neural networks, which are sensitive to feature scales.
+		
+		\item \textbf{Final Feature Set:} After one-hot encoding, the final feature set consisted of [X] features.
+	\end{enumerate}
+	
+	\subsection{Class Imbalance Considerations}
+	
+	With a default rate of [X\%], the dataset exhibits [mild/moderate/severe] class imbalance. Rather than applying resampling techniques like SMOTE \parencite{chawla2002smote}, which can introduce artificial patterns, ROC-AUC was selected as the primary evaluation metric as it is robust to class imbalance and evaluates model performance across all classification thresholds.
+	
+	% ============================================================================
+	% 5. RESULTS
+	% ============================================================================
+	
+	\section{Results}
+	
+	\subsection{Overall Model Performance}
+	
+	Table \ref{tab:model_performance} presents the performance metrics for all five models on the test set. [Describe the best performing model and overall patterns]
+	
+	\begin{table}[H]
+		\centering
+		\caption{Model Performance Comparison}
+		\label{tab:model_performance}
+		\begin{tabular}{lccccc}
+			\toprule
+			\textbf{Model} & \textbf{Accuracy} & \textbf{Precision} & \textbf{Recall} & \textbf{F1-Score} & \textbf{ROC-AUC} \\
+			\midrule
+			Logistic Regression & [X.XXX] & [X.XXX] & [X.XXX] & [X.XXX] & [X.XXX] \\
+			Decision Tree & [X.XXX] & [X.XXX] & [X.XXX] & [X.XXX] & [X.XXX] \\
+			Random Forest & [X.XXX] & [X.XXX] & [X.XXX] & [X.XXX] & [X.XXX] \\
+			XGBoost & [X.XXX] & [X.XXX] & [X.XXX] & [X.XXX] & [X.XXX] \\
+			Neural Network & [X.XXX] & [X.XXX] & [X.XXX] & [X.XXX] & [X.XXX] \\
+			\bottomrule
+		\end{tabular}
+	\end{table}
+	
+	Key findings from the performance comparison:
+	\begin{itemize}
+		\item [Best performing model with ROC-AUC of X.XXX]
+		\item [Baseline logistic regression achieved ROC-AUC of X.XXX]
+		\item [Ranking and performance differences between models]
+		\item [Notable patterns in precision vs recall tradeoffs]
+	\end{itemize}
+	
+	% Add ROC curves figure
+	\begin{figure}[H]
+		\centering
+		\caption{ROC Curves for All Models}
+		\label{fig:roc_curves}
+	\end{figure}
+	
+	Figure \ref{fig:roc_curves} displays the ROC curves for all five models, providing visual confirmation of [describe what the figure shows]. The separation between curves indicates [interpretation].
+	
+	\subsection{Performance vs Interpretability Tradeoff}
+	
+	One of the central questions of this research concerns the performance cost of interpretability. Table \ref{tab:tradeoff} quantifies this tradeoff:
+	
+	\begin{table}[H]
+		\centering
+		\caption{Interpretability-Performance Analysis}
+		\label{tab:tradeoff}
+		\begin{tabular}{lcc}
+			\toprule
+			\textbf{Metric} & \textbf{Value} & \textbf{Model} \\
+			\midrule
+			Best Overall Performance (ROC-AUC) & [X.XXX] & [Model Name] \\
+			Best Interpretable Model (ROC-AUC) & [X.XXX] & [Model Name] \\
+			\textbf{Performance Gap} & \textbf{[X.XXX] ([XX.X\%])} & --- \\
+			\bottomrule
+		\end{tabular}
+	\end{table}
+	
+	The performance gap of [X.XXX] (or [XX.X\%]) represents the quantifiable cost of choosing an interpretable model over the highest-performing complex model. This finding has significant implications for practitioners who must balance regulatory compliance with predictive accuracy.
+	
+	% Add interpretability vs performance scatter plot
+	\begin{figure}[H]
+		\centering
+%		\includegraphics[width=0.75\textwidth]{interpretability_performance_tradeoff.png}
+		\caption{Model Performance vs Interpretability Tradeoff}
+		\label{fig:tradeoff}
+	\end{figure}
+	
+	Figure \ref{fig:tradeoff} visualizes this tradeoff, with interpretability scores assigned based on model characteristics (5 = highest interpretability for logistic regression and decision trees, 1 = lowest for neural networks). The plot clearly demonstrates [describe the trend shown in the figure].
+	
+	\subsection{SHAP Analysis Results}
+	
+	\subsubsection{Global Feature Importance}
+	
+	SHAP analysis revealed the most influential features for default prediction across all models. Despite differences in model architecture, there was [describe level of agreement/disagreement] across models regarding feature importance.
+	
+	% Add SHAP summary plots
+	\begin{figure}[H]
+		\centering
+		\begin{subfigure}[b]{0.45\textwidth}
+%			\includegraphics[width=\textwidth]{shap_logistic_regression.png}
+			\caption{Logistic Regression}
+		\end{subfigure}
+		\hfill
+		\begin{subfigure}[b]{0.45\textwidth}
+%			\includegraphics[width=\textwidth]{shap_xgboost.png}
+			\caption{XGBoost}
+		\end{subfigure}
+		\caption{SHAP Summary Plots for Selected Models}
+		\label{fig:shap_summary}
+	\end{figure}
+	
+	The top five most important features across models were:
+	\begin{enumerate}
+		\item \textbf{[Feature Name]:} [Interpretation of its effect]
+		\item \textbf{[Feature Name]:} [Interpretation of its effect]
+		\item \textbf{[Feature Name]:} [Interpretation of its effect]
+		\item \textbf{[Feature Name]:} [Interpretation of its effect]
+		\item \textbf{[Feature Name]:} [Interpretation of its effect]
+	\end{enumerate}
+	
+	[Discuss consistency or inconsistency across models, and what this means for explainability]
+	
+	\subsubsection{Consistency of Explanations}
+	
+	A critical question for regulatory compliance is whether different models provide consistent explanations for predictions. Comparing SHAP values across models revealed [describe findings about consistency]. This [supports/challenges] the hypothesis that SHAP can provide sufficient explainability for complex models.
+	
+	\subsection{Model-Specific Insights}
+	
+	\textbf{Logistic Regression:} As the baseline model, logistic regression achieved [performance]. The most significant predictors were [features], with [describe coefficient magnitudes and directions].
+	
+	\textbf{Decision Tree:} [Describe performance, key decision rules, tree depth]
+	
+	\textbf{Random Forest:} [Describe performance, ensemble benefits, feature importance patterns]
+	
+	\textbf{XGBoost:} [Describe performance, why it performed well/poorly, hyperparameter sensitivity]
+	
+	\textbf{Neural Network:} [Describe performance relative to expectations, can SHAP make it explainable?]
+	
+	% ============================================================================
+	% 6. DISCUSSION
+	% ============================================================================
+	
+	\section{Discussion}
+	
+	\subsection{Interpretation of Findings}
+	
+	\subsubsection{Research Question 1: Best Performing Model}
+	
+	[Model Name] achieved the highest ROC-AUC of [X.XXX], outperforming the baseline logistic regression by [X.X\%]. This result [aligns with/contradicts] previous findings in the literature \parencite{lessmann2015benchmarking}. The superior performance can be attributed to [discuss why this model performed best - ability to capture non-linear relationships, ensemble benefits, etc.].
+	
+	\subsubsection{Research Question 2: Cost of Interpretability}
+	
+	The quantified performance gap of [X.XXX] ([XX.X\%]) between the best overall model and the best interpretable model represents the tangible cost that financial institutions pay for regulatory compliance. From a business perspective, this translates to:
+	
+	\begin{itemize}
+		\item [Estimated number of] additional missed defaults per [time period]
+		\item [Financial impact] in potential losses
+		\item Conversely, fewer false alarms leading to [customer experience benefits]
+	\end{itemize}
+	
+	Whether this cost is acceptable depends on institutional priorities and regulatory constraints. For institutions facing strict regulatory scrutiny or serving populations with fairness concerns, the interpretability benefits may justify the performance sacrifice.
+	
+	\subsubsection{Research Question 3: SHAP Effectiveness}
+	
+	The SHAP analysis demonstrated that complex models can be made substantially more explainable. Key findings include:
+	
+	\begin{itemize}
+		\item SHAP values provided consistent feature importance rankings across [most/all] models
+		\item Individual prediction explanations identified the specific features driving each decision
+		\item [Discuss any limitations or inconsistencies observed]
+	\end{itemize}
+	
+	However, the question of whether SHAP explanations satisfy regulatory requirements remains complex. While SHAP provides mathematically rigorous explanations based on cooperative game theory \parencite{lundberg2017unified}, regulatory agencies may still prefer the direct interpretability of logistic regression coefficients.
+	
+	\subsection{Comparison to Literature}
+	
+	These findings [align with/extend/contradict] existing research in several ways:
+	
+	\begin{itemize}
+		\item \textcite{lessmann2015benchmarking} found that [comparison point]
+		\item \textcite{bussmann2021explainable} argued that [comparison point]
+		\item This study's novel contribution is [what makes your findings unique]
+	\end{itemize}
+	
+	\subsection{Business and Regulatory Implications}
+	
+	\subsubsection{Recommendations for Lenders}
+	
+	Based on these findings, financial institutions should consider the following strategic approaches:
+	
+	\textbf{If interpretability is paramount:} Use [most interpretable model] with SHAP analysis for additional insights. Accept the [X\%] performance cost as the price of regulatory certainty.
+	
+	\textbf{If performance is critical:} Deploy [best performing model] with comprehensive SHAP analysis for adverse action explanations. Engage proactively with regulators to establish acceptability of SHAP-based explanations.
+	
+	\textbf{Balanced approach:} [Middle-ground model like Random Forest] offers [performance characteristics] while maintaining [interpretability characteristics].
+	
+	\subsubsection{Regulatory Considerations}
+	
+	Regulators face the challenge of balancing consumer protection with innovation. This research suggests that SHAP-enabled complex models could satisfy the spirit of adverse action requirements while enabling better risk assessment. Policy recommendations include:
+	
+	\begin{itemize}
+		\item Develop guidelines for acceptable explanation methods beyond coefficient interpretation
+		\item Require lenders to validate that SHAP explanations are accessible to consumers
+		\item Consider performance-interpretability tradeoffs in model approval processes
+	\end{itemize}
+	
+	\subsection{Limitations}
+	
+	This study has several limitations that should be considered when interpreting results:
+	
+	\begin{enumerate}
+		\item \textbf{Single Dataset:} Results are based on one credit dataset. Findings may not generalize to all credit portfolios or lending contexts.
+		
+		\item \textbf{Hyperparameter Optimization:} Due to computational constraints, hyperparameter search spaces were limited. More extensive tuning might improve model performance.
+		
+		\item \textbf{Class Imbalance:} While ROC-AUC is robust to imbalance, real-world default rates may differ from the dataset, affecting model performance.
+		
+		\item \textbf{SHAP Computational Cost:} Calculating SHAP values for large datasets or complex models can be computationally expensive, potentially limiting real-time application.
+		
+		\item \textbf{Model Selection:} Other models (e.g., Support Vector Machines, LightGBM) were not evaluated and might offer different performance-interpretability tradeoffs.
+		
+		\item \textbf{Feature Engineering:} Limited feature engineering was performed. Domain-specific features or interaction terms might improve performance.
+		
+		\item \textbf{Temporal Validation:} The study uses a static train-test split. Performance may degrade over time as borrower behavior evolves.
+	\end{enumerate}
+	
+	\subsection{Future Research Directions}
+	
+	Several avenues for future research emerge from this study:
+	
+	\begin{enumerate}
+		\item \textbf{Multi-Dataset Validation:} Replicate the analysis across multiple credit datasets from different industries and geographies to assess generalizability.
+		
+		\item \textbf{Deep Learning Architectures:} Explore more sophisticated neural network architectures (e.g., attention mechanisms, graph neural networks) and their explainability.
+		
+		\item \textbf{Alternative Data Sources:} Incorporate alternative credit data (e.g., utility payments, rent history) and evaluate its impact on the interpretability-performance tradeoff.
+		
+		\item \textbf{Temporal Analysis:} Conduct longitudinal studies to understand how model performance and explanations evolve over time.
+		
+		\item \textbf{Fairness Analysis:} Examine whether different models exhibit different levels of bias across demographic groups and how SHAP can support fairness auditing.
+		
+		\item \textbf{Cost-Sensitive Learning:} Incorporate business-specific costs of false positives and false negatives into model optimization.
+		
+		\item \textbf{Human Studies:} Conduct user studies with regulators and consumers to evaluate whether SHAP explanations are actually understandable and satisfactory.
+		
+		\item \textbf{Hybrid Approaches:} Develop models that explicitly optimize for both performance and interpretability simultaneously.
+	\end{enumerate}
+	
+	% ============================================================================
+	% 7. CONCLUSION
+	% ============================================================================
+	
+	\section{Conclusion}
+	
+	This study set out to address three fundamental questions about the application of machine learning to credit default prediction: which models perform best, what is the cost of interpretability, and whether explainable AI techniques can bridge the performance-interpretability gap.
+	
+	\subsection{Summary of Key Findings}
+	
+	The empirical analysis revealed several important findings:
+	
+	\begin{enumerate}
+		\item \textbf{Best Model:} [Model name] achieved the highest predictive performance with ROC-AUC of [X.XXX], demonstrating that [interpretation of why this model excelled].
+		
+		\item \textbf{Interpretability Cost:} The performance gap between the best overall model and the best interpretable model was [X.XXX] ([XX.X\%]), quantifying the tangible cost of regulatory compliance.
+		
+		\item \textbf{SHAP Effectiveness:} SHAP analysis successfully provided interpretable explanations across all models, with [degree of consistency] in feature importance rankings. However, the sufficiency of SHAP for full regulatory compliance remains context-dependent.
+	\end{enumerate}
+	
+	\subsection{Contributions}
+	
+	This research makes several contributions to both academic literature and industry practice:
+	
+	\begin{itemize}
+		\item \textbf{Quantification of Tradeoff:} Provides empirical evidence of the specific performance sacrifice required for interpretability in credit default prediction.
+		
+		\item \textbf{SHAP Evaluation:} Systematically evaluates SHAP across multiple model types, assessing its potential to enable complex model deployment.
+		
+		\item \textbf{Practical Framework:} Offers a replicable methodology for financial institutions to evaluate model choices based on their specific priorities.
+	\end{itemize}
+	
+	\subsection{Practical Recommendations}
+	
+	For financial institutions navigating the performance-interpretability tradeoff:
+	
+	\begin{itemize}
+		\item \textbf{Conservative approach:} Deploy highly interpretable models ([logistic regression or decision trees]) where regulatory requirements are strict or uncertain. Accept the [X\%] performance cost as insurance against compliance risks.
+		
+		\item \textbf{Innovative approach:} Utilize high-performance models ([model name]) with comprehensive SHAP analysis for explanations. Engage proactively with regulators to establish the acceptability of SHAP-based adverse action notices.
+		
+		\item \textbf{Balanced approach:} Adopt ensemble methods ([Random Forest or XGBoost]) that offer strong performance ([within X\% of best model]) while maintaining moderate interpretability through feature importance and SHAP.
+	\end{itemize}
+	
+	\subsection{Final Thoughts}
+	
+	The future of credit scoring lies not in choosing between performance and interpretability, but in developing methods that optimize both simultaneously. Explainable AI techniques like SHAP represent a promising step toward this goal, offering mathematical rigor and practical utility. However, the ultimate acceptability of these methods depends on regulatory evolution and demonstrated consumer understanding.
+	
+	As machine learning continues to advance, the credit industry must balance three competing imperatives: maximizing predictive accuracy to manage risk, maintaining transparency to satisfy regulations, and ensuring fairness to serve all consumers equitably. This study demonstrates that while tradeoffs exist, they need not be as stark as commonly assumed. With appropriate explanation methods, the gap between high-performing and interpretable models can be narrowed, enabling financial institutions to serve their customers and stakeholders more effectively.
+	
+	The [X\%] performance gap quantified in this research represents not a fixed constraint but rather the current state of technology and regulation. As explainability methods improve and regulatory frameworks evolve to accommodate them, this gap may narrow further. The path forward requires continued collaboration between researchers, practitioners, and regulators to develop credit scoring systems that are simultaneously accurate, interpretable, and fair.
+	
+	% ============================================================================
+	% REFERENCES
+	% ============================================================================
+	
+	\newpage
+	\printbibliography[title=References]
+	
+	% ============================================================================
+	% APPENDICES (Optional)
+	% ============================================================================
+	
+	\newpage
+	\appendix
+	
+	\section{Hyperparameter Configurations}
+	\label{app:hyperparameters}
+	
+	% Add table of final hyperparameters for each model
+	[Include the final hyperparameters selected through GridSearch for each model]
+	
+	\section{Additional Visualizations}
+	\label{app:visualizations}
+	
+	% Add confusion matrices, additional SHAP plots, etc.
+	
+	% \begin{figure}[H]
+		% \centering
+		% \includegraphics[width=0.9\textwidth]{confusion_matrices.png}
+		% \caption{Confusion Matrices for All Models}
+		% \label{fig:confusion_app}
+		% \end{figure}
+	
+	\section{Code Availability}
+	\label{app:code}
+	
+	The complete code for this analysis is available at: [GitHub repository link or statement about availability upon request]
+	
+	All analysis was conducted using Python 3.11 with the following key libraries: scikit-learn 1.2.0, XGBoost 1.7.0, TensorFlow 2.10.0, SHAP 0.41.0, and standard data science packages (pandas, numpy, matplotlib).
+	
+\end{document}

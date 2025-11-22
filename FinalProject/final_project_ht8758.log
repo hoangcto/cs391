@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2025.1.25)  21 NOV 2025 23:37
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2025.1.25)  22 NOV 2025 01:56
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -592,24 +592,24 @@ Package: blx-case-expl3 2024/03/21 v3.20 expl3 case changing code for biblatex
  (./final_project_ht8758.aux)
 \openout1 = `final_project_ht8758.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 73.
-LaTeX Font Info:    ... okay on input line 73.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 73.
-LaTeX Font Info:    ... okay on input line 73.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 73.
-LaTeX Font Info:    ... okay on input line 73.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 73.
-LaTeX Font Info:    ... okay on input line 73.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 73.
-LaTeX Font Info:    ... okay on input line 73.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 73.
-LaTeX Font Info:    ... okay on input line 73.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 73.
-LaTeX Font Info:    ... okay on input line 73.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 73.
-LaTeX Font Info:    ... okay on input line 73.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 73.
-LaTeX Font Info:    ... okay on input line 73.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 72.
+LaTeX Font Info:    ... okay on input line 72.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 72.
+LaTeX Font Info:    ... okay on input line 72.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 72.
+LaTeX Font Info:    ... okay on input line 72.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 72.
+LaTeX Font Info:    ... okay on input line 72.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 72.
+LaTeX Font Info:    ... okay on input line 72.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 72.
+LaTeX Font Info:    ... okay on input line 72.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 72.
+LaTeX Font Info:    ... okay on input line 72.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 72.
+LaTeX Font Info:    ... okay on input line 72.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 72.
+LaTeX Font Info:    ... okay on input line 72.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -667,7 +667,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring OFF on input line 73.
+Package hyperref Info: Link coloring OFF on input line 72.
  (./final_project_ht8758.out) (./final_project_ht8758.out)
 \@outlinefile=\write4
 \openout4 = `final_project_ht8758.out'.
@@ -702,25 +702,25 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'final_project_ht8758.bbl' found.
  (./final_project_ht8758.bbl)
-Package biblatex Info: Reference section=0 on input line 73.
-Package biblatex Info: Reference segment=0 on input line 73.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 76.
+Package biblatex Info: Reference section=0 on input line 72.
+Package biblatex Info: Reference segment=0 on input line 72.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 75.
  (c:/texlive/2024/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 76.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 75.
  (c:/texlive/2024/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-
-[1
-
-{c:/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{c:/texlive/2024/texmf-dist/fonts/enc/dvips/base/8r.enc}]
-Overfull \hbox (7.67366pt too wide) in paragraph at lines 94--95
+Overfull \hbox (7.67366pt too wide) in paragraph at lines 92--93
 []\T1/ptm/m/n/10.95 The re-sults in-di-cate that XG-Boost out-per-forms other mod-els with an ROC-AUC of [X.XXX],
  []
 
 
+
+[1
+
+{c:/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{c:/texlive/2024/texmf-dist/fonts/enc/dvips/base/8r.enc}]
 
 [2]
 
@@ -729,14 +729,14 @@ Overfull \hbox (7.67366pt too wide) in paragraph at lines 94--95
 [4]
 
 [5]
-Overfull \hbox (4.02672pt too wide) in paragraph at lines 195--196
+Overfull \hbox (4.02672pt too wide) in paragraph at lines 193--194
 []\T1/ptm/b/n/12 XGBoost (Gra-di-ent Boost-ing): \T1/ptm/m/n/12 A state-of-the-art gra-di-ent boost-ing im-ple-men-ta-tion known
  []
 
 
 
 [6]
-LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 206.
+LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 204.
  (c:/texlive/2024/texmf-dist/tex/latex/psnfss/ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 )
@@ -760,7 +760,7 @@ File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 [15]
 
 [16]
-Overfull \hbox (2.92937pt too wide) in paragraph at lines 559--560
+Overfull \hbox (2.92937pt too wide) in paragraph at lines 557--558
 []\T1/ptm/b/n/12 SHAP Ef-fec-tive-ness: \T1/ptm/m/n/12 SHAP anal-y-sis suc-cess-fully pro-vided in-ter-pretable ex-pla-na-tions across
  []
 
@@ -773,7 +773,7 @@ Overfull \hbox (2.92937pt too wide) in paragraph at lines 559--560
 [19]
 
 [20]
-Overfull \hbox (0.70107pt too wide) in paragraph at lines 599--599
+Overfull \hbox (0.70107pt too wide) in paragraph at lines 597--597
 [][]\T1/ptm/m/n/12 Sirignano, J., Sad-hwani, A., & Giesecke, K. (2016). Deep learn-ing for mort-gage risk. \T1/ptm/m/it/12 arXiv preprint
  []
 
@@ -791,15 +791,15 @@ Package logreq Info: Writing requests to 'final_project_ht8758.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 20985 strings out of 475135
- 366090 string characters out of 5765583
- 1283107 words of memory out of 5000000
- 43623 multiletter control sequences out of 15000+600000
- 594712 words of font info for 86 fonts, out of 8000000 for 9000
+ 20984 strings out of 475135
+ 366074 string characters out of 5765583
+ 1283087 words of memory out of 5000000
+ 43622 multiletter control sequences out of 15000+600000
+ 592987 words of font info for 85 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 75i,8n,81p,1099b,5052s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,8n,81p,1275b,5052s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2024/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><c:/texlive/2024/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><c:/texlive/2024/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on final_project_ht8758.pdf (21 pages, 96197 bytes).
+Output written on final_project_ht8758.pdf (21 pages, 96102 bytes).
 PDF statistics:
  401 PDF objects out of 1000 (max. 8388607)
  368 compressed objects within 4 object streams

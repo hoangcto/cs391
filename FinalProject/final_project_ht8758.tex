@@ -87,9 +87,7 @@
 		% - Key findings (best model, performance gap)
 		% - Main conclusion (interpretability tradeoff)
 		
-		Credit has been the core pillar of banking since the the formulation of our financial markets. Over time, banks and other lending institutions have gotten more sophisticated in underwriting to maximize profitability while minimizing losses. However, due to regulatory requirements for model interpretability, financial institutions currently do not use the state of the art machine learning algorithms in underwriting credit risk, namely neural network based. This study sought to understand how much underwriting performance, and potentially lending profitability, banks are giving up to be in compliance with regulatory bodies. I conducted a comprehensive comparative analysis of four machine learning models— logistic regression, XGBoost, LightGBM, and neural networks—evaluating their predictive performance and explainability using SHAP. The research addresses three key questions: which model achieves the highest accuracy, what is the performance cost of interpretability, and can SHAP provide sufficient explanations for complex models? Using a credit dataset from Coursera, models were trained and evaluated based on ROC-AUC, precision, recall, and F1-score. 
-		
-		The results indicate that XGBoost outperforms other models with an ROC-AUC of [X.XXX], while logistic regression, the most interpretable model, achieves an ROC-AUC of [X.XXX], revealing a performance gap of [X.XXX] ([XX.X\%]). Additionally, SHAP analysis demonstrated consistent feature importance across models, suggesting that explainable AI techniques can enhance the interpretability of complex models. However, the tradeoff between performance and interpretability remains a significant consideration for practitioners. The findings provide actionable insights for financial institutions seeking to balance regulatory compliance with predictive accuracy in credit risk assessment.
+		Credit underwriting is the life blood of financial institutions. However, due to regulatory requirements for model interpretability, financial institutions currently do not use the state of the art machine learning algorithms in underwriting credit risk, namely neural network based. This study sought to understand how much underwriting performance, and lending profitability, banks are giving up to be in compliance with regulatory bodies. We use data from Coursera's Credit Default challenge, which contains 2xx,xxx data points. I conducted a comprehensive comparative analysis of four machine learning models— logistic regression, XGBoost, LightGBM, and neural networks—evaluating their predictive performance and explainability using SHAP. The results indicate that XGBoost outperforms other models with an ROC-AUC of [X.XXX], while logistic regression, the most interpretable model, achieves an ROC-AUC of [X.XXX], revealing a performance gap of [X.XXX] ([XX.X\%]). Additionally, SHAP analysis demonstrated consistent feature importance across models, suggesting that explainable AI techniques can enhance the interpretability of complex models. However, the tradeoff between performance and interpretability remains a significant consideration for practitioners. The findings provide actionable insights for financial institutions seeking to balance regulatory compliance with predictive accuracy in credit risk assessment.
 		
 		\noindent
 		\textbf{Keywords:} Credit risk, machine learning, explainable AI, SHAP, default prediction, interpretability
@@ -104,33 +102,22 @@
 	\section{Introduction}
 	
 	% Background and Motivation (2-3 paragraphs)
-	The credit card industry operates at the intersection of risk management and customer access to credit. Financial institutions must accurately predict which borrowers are likely to default while simultaneously maintaining transparency in their lending decisions. This dual challenge has intensified with the advancement of machine learning techniques that offer superior predictive accuracy but often lack the interpretability required for regulatory compliance.
-	
-	% Add your motivation paragraph here - mention your work in fintech
-	[Expand on your personal motivation for this research, your experience in the fintech industry, and the specific problem you observed...]
+	Since the dawn of banking, credit has been the core business through which financial institutions grow and compete with one another. The credit card industry operates at the intersection of risk management and customer access to credit. As a finance professional at a leading lender, I experience first hands how our capacity to lend ties directly with our ability to underwrite consumer risk appropriate. Financial institutions must accurately predict which borrowers are likely to default while simultaneously maintaining transparency in their lending decisions. This dual challenge has intensified with the advancement of machine learning techniques that offer superior predictive accuracy but often lack the interpretability required for regulatory compliance. 
 	
 	% The Regulatory Challenge (1-2 paragraphs)
-	The Equal Credit Opportunity Act (ECOA) mandates that lenders provide specific reasons for adverse credit decisions \parencite{ecoa1974}. This regulatory requirement has created a significant barrier to adopting advanced machine learning models, particularly neural networks, which are often considered ``black boxes'' due to their complex internal mechanisms \parencite{hurley2016credit}. As a result, many financial institutions continue to rely on traditional logistic regression models despite potentially sacrificing predictive performance.
+	The Equal Credit Opportunity Act (ECOA) mandates that lenders provide specific reasons for adverse credit decisions \parencite{ecoa1974}. This regulatory requirement has created a significant barrier to adopting advanced machine learning models, particularly neural networks, which are often considered ``black boxes'' due to their complex internal mechanisms \parencite{hurley2016credit}. As a result, many financial institutions continue to rely on logistic regression and tree-based models despite potentially sacrificing predictive performance [NEED SOURCE HERE].
 	
 	% Research Questions
-	This study addresses three fundamental research questions:
-	
-	\begin{enumerate}
-		\item Which machine learning models achieve the highest predictive accuracy for credit card default prediction?
-		\item What is the quantifiable performance cost when financial institutions choose interpretable models over complex alternatives?
-		\item Can SHAP (SHapley Additive exPlanations) provide sufficient interpretability for complex models to meet regulatory requirements?
-	\end{enumerate}
+	This paper aims to addresses two fundamental questions: (1) Are neural network based models outperforming logistics or tree-based models, that are more interpretable? and (2) Can SHAP (SHapley Additive exPlanations) provide sufficient interpretability for complex models to meet regulatory requirements? [CAN WE EVEN USE THIS]. Accurate credit worthiness assessments would help both the lenders and borrowers, whereas the former can assign appropriate level of risk to the borrowers and lower the risk of unexpected losses, allowing the latter to borrow more cheaply \parencite{einav2013impact}.  
 	
 	% Contribution and Paper Structure
-	By comparing five distinct machine learning models—ranging from highly interpretable (logistic regression) to complex ``black box'' models (neural networks)—and employing SHAP values for explainability analysis, this research quantifies the interpretability-performance tradeoff that financial institutions face. The findings provide actionable insights for practitioners navigating the balance between model accuracy and regulatory compliance.
-	
-	The remainder of this paper is structured as follows: Section 2 reviews the relevant literature on credit scoring, machine learning applications, and explainable AI. Section 3 describes the methodology, including model selection and evaluation metrics. Section 4 details the dataset and preprocessing steps. Section 5 presents the empirical results. Section 6 discusses the findings and their implications. Section 7 concludes with recommendations and future research directions.
+	By comparing five distinct machine learning models—ranging from highly interpretable model (logistic regression) to the ``black box'' model (neural networks)—and employing SHAP values for explainability analysis, this paper seeks to provide a repeatable framework to quantify the interpretability-performance tradeoff that financial institutions face, providing actionable insights for practitioners navigating the balance between model performance and regulatory compliance.
 	
 	% ============================================================================
 	% 2. LITERATURE REVIEW
 	% ============================================================================
 	
-	\section{Literature Review}
+	\section{Research Background}
 	
 	\subsection{Traditional Credit Scoring Methods}
 	
@@ -140,7 +127,7 @@
 	
 	\subsection{Machine Learning in Credit Risk Assessment}
 	
-	The application of machine learning to credit risk has evolved significantly over the past two decades. Early comparative studies demonstrated that ensemble methods and neural networks could outperform traditional logistic regression \parencite{khandani2010consumer}. \textcite{lessmann2015benchmarking} conducted a comprehensive benchmark of classification algorithms for credit scoring, finding that ensemble methods consistently ranked among the top performers across multiple datasets.
+	The application of machine learning to credit risk has evolved significantly over the past two decades. Early comparative studies demonstrated that ensemble methods could outperform traditional logistic regression \parencite{khandani2010consumer}. \textcite{lessmann2015benchmarking} conducted a comprehensive benchmark of classification algorithms for credit scoring, finding that ensemble methods consistently ranked among the top performers across multiple datasets.
 	
 	More recent research has explored the application of specific ML techniques to credit default prediction. \textcite{brown2012experimental} examined the challenges of class imbalance in credit scoring datasets, while \textcite{bellotti2013forecasting} focused on dynamic models for credit card default prediction.
 	
@@ -148,7 +135,7 @@
 	
 	\subsection{Ensemble Methods and Deep Learning}
 	
-	Random forests \parencite{breiman2001random} and gradient boosting machines \parencite{friedman2001greedy} have emerged as powerful ensemble methods for credit scoring. \textcite{wang2011comparative} found that ensemble learning approaches consistently outperformed single classifiers in credit risk assessment. XGBoost, a scalable tree boosting system \parencite{chen2016xgboost}, has become particularly popular due to its performance and built-in handling of missing values.
+	Random forests and gradient boosting have emerged as powerful ensemble methods for credit scoring. \textcite{wang2011comparative} found that ensemble learning approaches consistently outperformed single classifiers in credit risk assessment. XGBoost, a scalable tree boosting system \parencite{chen2016xgboost}, has become particularly popular due to its performance and built-in handling of missing values.
 	
 	Deep learning applications in credit risk have shown promising results but face adoption challenges. \textcite{sirignano2016deep} demonstrated the potential of deep learning for mortgage risk prediction, while \textcite{hamori2018ensemble} compared ensemble learning with deep learning approaches for default risk analysis.
 	
@@ -158,16 +145,47 @@
 	
 	The need for model interpretability in regulated industries has driven significant research in explainable AI (XAI). \textcite{lundberg2017unified} introduced SHAP (SHapley Additive exPlanations), a unified framework for interpreting model predictions based on cooperative game theory. This approach assigns each feature an importance value for a particular prediction, providing both local (individual prediction) and global (overall model) explanations.
 	
-	\textcite{lundberg2020local} extended this work by demonstrating how SHAP values can provide global understanding of tree-based models. \textcite{bussmann2021explainable} specifically examined explainable machine learning in credit risk management, arguing that SHAP and similar techniques could bridge the gap between model performance and regulatory requirements.
-	
-	[Expand on XAI applications in lending and regulatory perspectives...]
-	
-	\subsection{Research Gap}
-	
-	While extensive research has compared ML models for credit scoring and explored explainability techniques separately, few studies have systematically quantified the interpretability-performance tradeoff across a spectrum of models while applying SHAP analysis consistently. This research addresses this gap by providing empirical evidence of the performance cost of interpretability and evaluating whether SHAP can make complex models sufficiently explainable for regulatory compliance.
+	\textcite{lundberg2020local} extended this work by demonstrating how SHAP values can provide global understanding of tree-based models. \textcite{bussmann2021explainable} specifically examined explainable machine learning in credit risk management, arguing that SHAP and similar techniques could bridge the gap between model performance and regulatory requirements. In this research, we will leverage explainability techniques (SHAP) to quantify the interpretability-performance tradeoff across machine learning models.
+
 	
 	% ============================================================================
-	% 3. METHODOLOGY
+	% 3. DATA
+	% ==========================================================================
+	
+	\section{Data}
+		
+	This study utilizes the \href{https://www.coursera.org/projects/data-science-coding-challenge-loan-default-prediction}{Loan Default Prediction dataset from Coursera}, which contains borrower information for credit default prediction. The dataset includes 255,347 observations with 16 features and a binary target variable indicating default status.
+	
+	% Add a table of features
+	\begin{table}[H]
+		\centering
+		\label{tab:features}
+		\begin{tabular}{lll}
+			\toprule
+			\textbf{Feature} & \textbf{Type} & \textbf{Description} \\
+			\midrule
+			Age & Numerical & Age of the borrower \\
+			Income & Numerical & Annual income \\
+			LoanAmount & Numerical & Amount of money borrowed \\
+			CreditScore & Numerical & Credit score (creditworthiness) \\
+			MonthsEmployed & Numerical & Months of employment \\
+			NumCreditLines & Numerical & Number of open credit lines \\
+			InterestRate & Numerical & Loan interest rate \\
+			LoanTerm & Numerical & Loan term in months \\
+			DTIRatio & Numerical & Debt-to-Income ratio \\
+			Education & Categorical & Highest education level \\
+			EmploymentType & Categorical & Employment status \\
+			MaritalStatus & Categorical & Marital status \\
+			HasMortgage & Categorical & Mortgage status (Yes/No) \\
+			HasDependents & Categorical & Has dependents (Yes/No) \\
+			LoanPurpose & Categorical & Purpose of the loan \\
+			HasCoSigner & Categorical & Co-signer status (Yes/No) \\
+			\bottomrule
+		\end{tabular}
+		\caption{Dataset Features}
+	\end{table}
+	% ============================================================================
+	% 4. METHODOLOGY
 	% ============================================================================
 	
 	\section{Methodology}

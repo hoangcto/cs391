@@ -1,13 +1,13 @@
 # Fdb version 4
-["biber final_project_ht8758"] 1764228121.84052 "final_project_ht8758.bcf" "final_project_ht8758.bbl" "final_project_ht8758" 1764228161.96269 0
-  "final_project_ht8758.bcf" 1764228161 136426 bbdd419430ac5d84cf118bed4bee93f8 "pdflatex"
+["biber final_project_ht8758"] 1764489854.75513 "final_project_ht8758.bcf" "final_project_ht8758.bbl" "final_project_ht8758" 1764490023.36959 0
+  "final_project_ht8758.bcf" 1764490023 135954 411f7b3ade3cce1514cf4a4b2a0f29ce "pdflatex"
   "references.bib" 1764228091 12005 e8c04dcf79f0a1e55858abf29975a4f5 ""
   (generated)
   "final_project_ht8758.bbl"
   "final_project_ht8758.blg"
   (rewritten before read)
-["pdflatex"] 1764228160.20143 "c:/Game/cs391/FinalProject/final_project_ht8758.tex" "final_project_ht8758.pdf" "final_project_ht8758" 1764228161.96357 0
-  "c:/Game/cs391/FinalProject/final_project_ht8758.tex" 1764228159 37386 8a8f0cb533f6811630a94fdb6d07fd0d ""
+["pdflatex"] 1764490021.36835 "c:/Game/cs391/FinalProject/final_project_ht8758.tex" "final_project_ht8758.pdf" "final_project_ht8758" 1764490023.37063 0
+  "c:/Game/cs391/FinalProject/final_project_ht8758.tex" 1764490020 36304 455dc05ee0ba4eef0e2d1a02de6c8a25 ""
   "c:/texlive/2025/texmf-dist/fonts/enc/dvips/base/8r.enc" 1763800680 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "c:/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1763800896 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2025/texmf-dist/fonts/tfm/adobe/times/ptmb8r.tfm" 1763802354 4524 6bce29db5bc272ba5f332261583fee9c ""
@@ -126,11 +126,12 @@
   "c:/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1763802624 360700 5bef8c37b2dbc5d8e38ee92f52e19fd5 ""
   "c:/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1763802669 2285857 d83641984a116dde819369f40f876265 ""
   "c:/texlive/2025/texmf.cnf" 1763802618 713 e69b156964470283e0530f5060668171 ""
-  "final_project_ht8758.aux" 1764228161 14036 273bda75bbe4d7f2e94d1416f6815875 "pdflatex"
-  "final_project_ht8758.bbl" 1764228123 69589 c53c8fcc25fcab8b40e3b712d259930c "biber final_project_ht8758"
-  "final_project_ht8758.out" 1764228161 8121 2bc1de46519d05ffbe1c7f7d8a28ab2e "pdflatex"
-  "final_project_ht8758.run.xml" 1764228161 2539 c0d5e7e68d7b5b58dd06aaa42c57c1a2 "pdflatex"
-  "final_project_ht8758.tex" 1764228159 37386 8a8f0cb533f6811630a94fdb6d07fd0d ""
+  "figures/default_distribution.png" 1764489178 18824 d68e32fd2a1a7be3ac8bddf9cddcb3e1 ""
+  "final_project_ht8758.aux" 1764490023 12587 662b9969ef1b7512196b84b19411907f "pdflatex"
+  "final_project_ht8758.bbl" 1764489856 62731 8d51053e6be70b1b25b38ebd7cb7f2a5 "biber final_project_ht8758"
+  "final_project_ht8758.out" 1764490023 6795 9f3faeefc97395c58ebe93dd7d14968d "pdflatex"
+  "final_project_ht8758.run.xml" 1764490023 2539 c0d5e7e68d7b5b58dd06aaa42c57c1a2 "pdflatex"
+  "final_project_ht8758.tex" 1764490020 36304 455dc05ee0ba4eef0e2d1a02de6c8a25 ""
   (generated)
   "final_project_ht8758.aux"
   "final_project_ht8758.bcf"

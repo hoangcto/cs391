@@ -3076,34 +3076,28 @@
     <bcf:citekey order="3" intorder="1">einav2013impact</bcf:citekey>
     <bcf:citekey order="4" intorder="1">baesens2003benchmarking</bcf:citekey>
     <bcf:citekey order="5" intorder="1">khandani2010consumer</bcf:citekey>
-    <bcf:citekey order="6" intorder="1">lessmann2015benchmarking</bcf:citekey>
-    <bcf:citekey order="7" intorder="1">lessmann2015benchmarking</bcf:citekey>
-    <bcf:citekey order="8" intorder="1">brown2012experimental</bcf:citekey>
-    <bcf:citekey order="9" intorder="1">brown2012experimental</bcf:citekey>
-    <bcf:citekey order="10" intorder="1">bellotti2013forecasting</bcf:citekey>
-    <bcf:citekey order="11" intorder="1">bellotti2013forecasting</bcf:citekey>
-    <bcf:citekey order="12" intorder="1">wang2011comparative</bcf:citekey>
-    <bcf:citekey order="13" intorder="1">wang2011comparative</bcf:citekey>
-    <bcf:citekey order="14" intorder="1">chen2016xgboost</bcf:citekey>
-    <bcf:citekey order="15" intorder="1">sirignano2016deep</bcf:citekey>
-    <bcf:citekey order="16" intorder="1">sirignano2016deep</bcf:citekey>
-    <bcf:citekey order="17" intorder="1">hamori2018ensemble</bcf:citekey>
-    <bcf:citekey order="18" intorder="1">hamori2018ensemble</bcf:citekey>
-    <bcf:citekey order="19" intorder="1">lundberg2017unified</bcf:citekey>
-    <bcf:citekey order="20" intorder="1">lundberg2017unified</bcf:citekey>
-    <bcf:citekey order="21" intorder="1">lundberg2020local</bcf:citekey>
-    <bcf:citekey order="22" intorder="1">lundberg2020local</bcf:citekey>
-    <bcf:citekey order="23" intorder="1">bussmann2021explainable</bcf:citekey>
-    <bcf:citekey order="24" intorder="1">bussmann2021explainable</bcf:citekey>
-    <bcf:citekey order="25" intorder="1">he2009learning</bcf:citekey>
-    <bcf:citekey order="26" intorder="1">lundberg2017unified</bcf:citekey>
-    <bcf:citekey order="27" intorder="1">chawla2002smote</bcf:citekey>
-    <bcf:citekey order="28" intorder="1">lessmann2015benchmarking</bcf:citekey>
-    <bcf:citekey order="29" intorder="1">lundberg2017unified</bcf:citekey>
-    <bcf:citekey order="30" intorder="1">lessmann2015benchmarking</bcf:citekey>
-    <bcf:citekey order="31" intorder="1">lessmann2015benchmarking</bcf:citekey>
-    <bcf:citekey order="32" intorder="1">bussmann2021explainable</bcf:citekey>
-    <bcf:citekey order="33" intorder="1">bussmann2021explainable</bcf:citekey>
+    <bcf:citekey order="6" intorder="1">wang2011comparative</bcf:citekey>
+    <bcf:citekey order="7" intorder="1">wang2011comparative</bcf:citekey>
+    <bcf:citekey order="8" intorder="1">chen2016xgboost</bcf:citekey>
+    <bcf:citekey order="9" intorder="1">sirignano2016deep</bcf:citekey>
+    <bcf:citekey order="10" intorder="1">sirignano2016deep</bcf:citekey>
+    <bcf:citekey order="11" intorder="1">hamori2018ensemble</bcf:citekey>
+    <bcf:citekey order="12" intorder="1">hamori2018ensemble</bcf:citekey>
+    <bcf:citekey order="13" intorder="1">lundberg2017unified</bcf:citekey>
+    <bcf:citekey order="14" intorder="1">lundberg2017unified</bcf:citekey>
+    <bcf:citekey order="15" intorder="1">lundberg2020local</bcf:citekey>
+    <bcf:citekey order="16" intorder="1">lundberg2020local</bcf:citekey>
+    <bcf:citekey order="17" intorder="1">bussmann2021explainable</bcf:citekey>
+    <bcf:citekey order="18" intorder="1">bussmann2021explainable</bcf:citekey>
+    <bcf:citekey order="19" intorder="1">chawla2002smote</bcf:citekey>
+    <bcf:citekey order="20" intorder="1">he2009learning</bcf:citekey>
+    <bcf:citekey order="21" intorder="1">lundberg2017unified</bcf:citekey>
+    <bcf:citekey order="22" intorder="1">lessmann2015benchmarking</bcf:citekey>
+    <bcf:citekey order="23" intorder="1">lundberg2017unified</bcf:citekey>
+    <bcf:citekey order="24" intorder="1">lessmann2015benchmarking</bcf:citekey>
+    <bcf:citekey order="25" intorder="1">lessmann2015benchmarking</bcf:citekey>
+    <bcf:citekey order="26" intorder="1">bussmann2021explainable</bcf:citekey>
+    <bcf:citekey order="27" intorder="1">bussmann2021explainable</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="apa">

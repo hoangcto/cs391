@@ -108,10 +108,10 @@
 	The Equal Credit Opportunity Act (ECOA) mandates that lenders provide specific reasons for adverse credit decisions \parencite{ecoa1974}. This regulatory requirement has created a significant barrier to adopting advanced machine learning models, particularly neural networks, which are often considered ``black boxes'' due to their complex internal mechanisms \parencite{hurley2016credit}. As a result, many financial institutions continue to rely on logistic regression and tree-based models despite potentially sacrificing predictive performance [NEED SOURCE HERE].
 	
 	% Research Questions
-	This paper aims to addresses two fundamental questions: (1) Are neural network based models outperforming logistics or tree-based models, that are more interpretable? and (2) Can SHAP (SHapley Additive exPlanations) provide sufficient interpretability for complex models to meet regulatory requirements? [CAN WE EVEN USE THIS]. Accurate credit worthiness assessments would help both the lenders and borrowers, whereas the former can assign appropriate level of risk to the borrowers and lower the risk of unexpected losses, allowing the latter to borrow more cheaply \parencite{einav2013impact}.  
+	This paper aims to understand two fundamental questions: (1) Are neural network based models outperforming more interpretable logistics and tree-based models? and (2) Can SHAP (SHapley Additive exPlanations) provide sufficient interpretability for complex models to meet regulatory requirements? [CAN WE EVEN USE THIS]. Accurate credit worthiness assessments would help both the lenders and borrowers, whereas the former can assign appropriate level of risk to the borrowers and lower the risk of unexpected losses, allowing the latter to borrow more cheaply \parencite{einav2013impact}.  
 	
 	% Contribution and Paper Structure
-	By comparing five distinct machine learning models—ranging from highly interpretable model (logistic regression) to the ``black box'' model (neural networks)—and employing SHAP values for explainability analysis, this paper seeks to provide a repeatable framework to quantify the interpretability-performance tradeoff that financial institutions face, providing actionable insights for practitioners navigating the balance between model performance and regulatory compliance.
+	By comparing four distinct machine learning models, ranging from highly interpretable model (logistic regression) to the ``black box'' model (neural networks), and employing SHAP values for explainability analysis, this paper seeks to provide a repeatable framework to quantify the interpretability-performance tradeoff that financial institutions face, providing actionable insights for practitioners navigating the balance between model performance and regulatory compliance.
 	
 	% ============================================================================
 	% 2. LITERATURE REVIEW
@@ -119,33 +119,18 @@
 	
 	\section{Research Background}
 	
-	\subsection{Traditional Credit Scoring Methods}
+	%\subsection{Traditional Credit Scoring Methods}
 	
-	Credit scoring has been a cornerstone of lending decisions for decades. Traditional approaches, particularly FICO scores and logistic regression models, have dominated the industry due to their interpretability and regulatory acceptance \parencite{baesens2003benchmarking}. These methods rely on a limited set of financial and demographic variables to predict default probability, with coefficients that can be directly interpreted as the marginal effect of each variable.
+	Credit scoring has been a key pillar of lending decisions for decades. Traditional approaches, particularly FICO scores and logistic regression models, have dominated the industry due to their interpretability and regulatory acceptance \parencite{baesens2003benchmarking}. These methods rely on a limited set of financial and demographic variables to predict default probability, with coefficients that can be directly interpreted as the marginal effect of each variable.
 	
-	[Expand on the history, strengths, and limitations of traditional methods...]
+	%\subsection{Machine Learning in Credit Risk Assessment}
 	
-	\subsection{Machine Learning in Credit Risk Assessment}
-	
-	The application of machine learning to credit risk has evolved significantly over the past two decades. Early comparative studies demonstrated that ensemble methods could outperform traditional logistic regression \parencite{khandani2010consumer}. \textcite{lessmann2015benchmarking} conducted a comprehensive benchmark of classification algorithms for credit scoring, finding that ensemble methods consistently ranked among the top performers across multiple datasets.
-	
-	More recent research has explored the application of specific ML techniques to credit default prediction. \textcite{brown2012experimental} examined the challenges of class imbalance in credit scoring datasets, while \textcite{bellotti2013forecasting} focused on dynamic models for credit card default prediction.
-	
-	[Continue with more literature on ML applications in credit risk...]
-	
-	\subsection{Ensemble Methods and Deep Learning}
-	
-	Random forests and gradient boosting have emerged as powerful ensemble methods for credit scoring. \textcite{wang2011comparative} found that ensemble learning approaches consistently outperformed single classifiers in credit risk assessment. XGBoost, a scalable tree boosting system \parencite{chen2016xgboost}, has become particularly popular due to its performance and built-in handling of missing values.
+	Within the past two decades, the application of machine learning to credit risk has evolved significantly. Comparative studies demonstrated that ensemble methods could outperform traditional logistic regression \parencite{khandani2010consumer}. Random forests and gradient boosting have emerged as powerful ensemble methods for credit scoring. \textcite{wang2011comparative} found that ensemble learning approaches consistently outperformed single classifiers in credit risk assessment. XGBoost, a scalable tree boosting system \parencite{chen2016xgboost}, has become particularly popular due to its performance and built-in handling of missing values.
 	
 	Deep learning applications in credit risk have shown promising results but face adoption challenges. \textcite{sirignano2016deep} demonstrated the potential of deep learning for mortgage risk prediction, while \textcite{hamori2018ensemble} compared ensemble learning with deep learning approaches for default risk analysis.
+	%\subsection{Explainable AI in Financial Services}
 	
-	[Add more discussion on neural networks in finance...]
-	
-	\subsection{Explainable AI in Financial Services}
-	
-	The need for model interpretability in regulated industries has driven significant research in explainable AI (XAI). \textcite{lundberg2017unified} introduced SHAP (SHapley Additive exPlanations), a unified framework for interpreting model predictions based on cooperative game theory. This approach assigns each feature an importance value for a particular prediction, providing both local (individual prediction) and global (overall model) explanations.
-	
-	\textcite{lundberg2020local} extended this work by demonstrating how SHAP values can provide global understanding of tree-based models. \textcite{bussmann2021explainable} specifically examined explainable machine learning in credit risk management, arguing that SHAP and similar techniques could bridge the gap between model performance and regulatory requirements. In this research, we will leverage explainability techniques (SHAP) to quantify the interpretability-performance tradeoff across machine learning models.
+	The need for model interpretability in regulated industries has driven significant research in explainable AI (XAI). \textcite{lundberg2017unified} introduced SHAP (SHapley Additive exPlanations), a unified framework for interpreting model predictions based on cooperative game theory. This approach assigns each feature an importance value for a particular prediction, providing both local (individual prediction) and global (overall model) explanations. \textcite{lundberg2020local} extended their work by demonstrating how SHAP values can provide global understanding of tree-based models. \textcite{bussmann2021explainable} specifically examined explainable machine learning in credit risk management, arguing that SHAP and similar techniques could bridge the gap between model performance and regulatory requirements. In this research, we will use SHAP to gauge the interpretability across machine learning models.
 
 	
 	% ============================================================================
@@ -154,7 +139,7 @@
 	
 	\section{Data}
 		
-	This study utilizes the \href{https://www.coursera.org/projects/data-science-coding-challenge-loan-default-prediction}{Loan Default Prediction dataset from Coursera}, which contains borrower information for credit default prediction. The dataset includes 255,347 observations with 16 features and a binary target variable indicating default status.
+	In aimming to addresses the research questions, this paper utilizes the \href{https://www.coursera.org/projects/data-science-coding-challenge-loan-default-prediction}{Loan Default Prediction dataset from Coursera's Loan Default Prediction Challenge}, which contains borrower information for credit default prediction. The dataset includes 255,347 observations with 16 columns describing a borrower's characteristics such as age, income, credit score, education, etc. that will be used as features (Table 1). Last but not least, there is a binary target variable indicating default status.
 	
 	% Add a table of features
 	\begin{table}[H]
@@ -184,6 +169,64 @@
 		\end{tabular}
 		\caption{Dataset Features}
 	\end{table}
+	\subsection{Exploratory Data Analysis}
+	
+	I dug into the dataset to have a gasp of the features we are leveraging to answer the research questions (Table 2). The dataset composed of a loans being made to a diverse range of borrowers (income ranges from \$15,000 to \$150,000, loan amount from \$5,000 to \$250,000). Most importantly, the default rate within the dataset is around 11.6\%, which raised a question of imbalanced data. We would use SMOTE (Sysnthetic Minority Over-sampling Technique) to mitigate this, discussed in Section \ref{sec:preprocessing}
+	
+	% subsection subsection name (end)] 
+	% Add bullet points about your EDA findings
+	\begin{itemize}
+		\item Default rate: 11.6\% (Figure 1)
+		\item Notable patterns in feature distributions
+		\item Correlations between features
+		\item Any data quality issues
+	\end{itemize}
+	\begin{table}[htbp]
+	\centering
+	\caption{Summary Statistics}
+	\label{tab:summary_stats}
+	\resizebox{\textwidth}{!}{%
+	\begin{tabular}{lrrrrrrrrrr}
+	\toprule
+	& Age & Income & LoanAmount & CreditScore & MonthsEmployed & NumCreditLines & InterestRate & LoanTerm & DTIRatio \\
+	\midrule
+	mean & 43.50 & 82,499 & 127,579 & 574.26 & 59.54 & 2.50 & 13.49 & 36.03 & 0.50  \\
+	std & 14.99 & 38,963 & 70,841 & 158.90 & 34.64 & 1.12 & 6.64 & 16.97 & 0.23  \\
+	min & 18.00 & 15,000 & 5,000 & 300.00 & 0.00 & 1.00 & 2.00 & 12.00 & 0.10  \\
+	25\% & 31.00 & 48,826 & 66,156 & 437.00 & 30.00 & 2.00 & 7.77 & 24.00 & 0.30  \\
+	50\% & 43.00 & 82,466 & 127,556 & 574.00 & 60.00 & 2.00 & 13.46 & 36.00 & 0.50  \\
+	75\% & 56.00 & 116,219 & 188,985 & 712.00 & 90.00 & 3.00 & 19.25 & 48.00 & 0.70  \\
+	max & 69.00 & 149,999 & 249,999 & 849.00 & 119.00 & 4.00 & 25.00 & 60.00 & 0.90  \\
+	\bottomrule
+	\end{tabular}%
+	}
+	\end{table}
+
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.6\textwidth]{figures/default_distribution.png}
+		\caption{Distribution of Default vs Non-Default Cases}
+		\label{fig:default_dist}
+		\end{figure}
+	
+	\subsection{Data Preprocessing}\label{sec:preprocessing}
+	
+	The following preprocessing steps were applied:
+	
+	\begin{enumerate}
+		\item \textbf{Train-Test Split:} The data was split 70\% for training and 30\% for testing prior to any preprocessing to prevent data leakage.
+		
+		\item \textbf{Categorical Encoding:} One-hot encoding was applied to all categorical variables (Education, EmploymentType, MaritalStatus, HasMortgage, HasDependents, LoanPurpose, HasCoSigner), creating binary indicator variables while dropping the first category to avoid multicollinearity.
+		
+		\item \textbf{Feature Scaling/Normalization:} Numerical features were standardized using StandardScaler to have mean 0 and standard deviation 1. This is particularly important for logistic regression and neural networks, which are sensitive to feature scales.
+		
+		\item \textbf{Final Feature Set:} After one-hot encoding, the final feature set consisted of [X] features.
+	\end{enumerate}
+	
+	\subsection{Class Imbalance Considerations}
+	
+	With a default rate of [X\%], the dataset exhibits [mild/moderate/severe] class imbalance. Rather than applying resampling techniques like SMOTE \parencite{chawla2002smote}, which can introduce artificial patterns, ROC-AUC was selected as the primary evaluation metric as it is robust to class imbalance and evaluates model performance across all classification thresholds.
 	% ============================================================================
 	% 4. METHODOLOGY
 	% ============================================================================
@@ -243,83 +286,6 @@
 	\end{itemize}
 	
 	SHAP analysis provides both global feature importance (which features matter most overall) and local explanations (why a specific prediction was made), enabling assessment of whether complex models can achieve sufficient explainability \parencite{lundberg2017unified}.
-	
-	% ============================================================================
-	% 4. DATA AND PREPROCESSING
-	% ============================================================================
-	
-	\section{Data and Preprocessing}
-	
-	\subsection{Dataset Description}
-	
-	This study utilizes the Loan Default Prediction dataset from Kaggle, which contains borrower information for credit default prediction. The dataset includes [insert sample size] observations with [insert features] features and a binary target variable indicating default status.
-	
-	% Add a table of features
-	\begin{table}[H]
-		\centering
-		\caption{Dataset Features}
-		\label{tab:features}
-		\begin{tabular}{lll}
-			\toprule
-			\textbf{Feature} & \textbf{Type} & \textbf{Description} \\
-			\midrule
-			Age & Numerical & Age of the borrower \\
-			Income & Numerical & Annual income \\
-			LoanAmount & Numerical & Amount of money borrowed \\
-			CreditScore & Numerical & Credit score (creditworthiness) \\
-			MonthsEmployed & Numerical & Months of employment \\
-			NumCreditLines & Numerical & Number of open credit lines \\
-			InterestRate & Numerical & Loan interest rate \\
-			LoanTerm & Numerical & Loan term in months \\
-			DTIRatio & Numerical & Debt-to-Income ratio \\
-			Education & Categorical & Highest education level \\
-			EmploymentType & Categorical & Employment status \\
-			MaritalStatus & Categorical & Marital status \\
-			HasMortgage & Categorical & Mortgage status (Yes/No) \\
-			HasDependents & Categorical & Has dependents (Yes/No) \\
-			LoanPurpose & Categorical & Purpose of the loan \\
-			HasCoSigner & Categorical & Co-signer status (Yes/No) \\
-			\bottomrule
-		\end{tabular}
-	\end{table}
-	
-	\subsection{Exploratory Data Analysis}
-	
-	The dataset exhibits [describe class distribution, e.g., ``a default rate of X\%, indicating moderate class imbalance'']. Key observations from exploratory analysis include:
-	
-	% Add bullet points about your EDA findings
-	\begin{itemize}
-		\item Default rate: [X\%]
-		\item [Notable patterns in feature distributions]
-		\item [Correlations between features]
-		\item [Any data quality issues]
-	\end{itemize}
-	
-	% Consider adding a figure showing default distribution
-	% \begin{figure}[H]
-		% \centering
-		% \includegraphics[width=0.6\textwidth]{figures/default_distribution.png}
-		% \caption{Distribution of Default vs Non-Default Cases}
-		% \label{fig:default_dist}
-		% \end{figure}
-	
-	\subsection{Data Preprocessing}
-	
-	The following preprocessing steps were applied:
-	
-	\begin{enumerate}
-		\item \textbf{Train-Test Split:} The data was split 70\% for training and 30\% for testing prior to any preprocessing to prevent data leakage.
-		
-		\item \textbf{Categorical Encoding:} One-hot encoding was applied to all categorical variables (Education, EmploymentType, MaritalStatus, HasMortgage, HasDependents, LoanPurpose, HasCoSigner), creating binary indicator variables while dropping the first category to avoid multicollinearity.
-		
-		\item \textbf{Feature Scaling:} Numerical features were standardized using StandardScaler to have mean 0 and standard deviation 1. This is particularly important for logistic regression and neural networks, which are sensitive to feature scales.
-		
-		\item \textbf{Final Feature Set:} After one-hot encoding, the final feature set consisted of [X] features.
-	\end{enumerate}
-	
-	\subsection{Class Imbalance Considerations}
-	
-	With a default rate of [X\%], the dataset exhibits [mild/moderate/severe] class imbalance. Rather than applying resampling techniques like SMOTE \parencite{chawla2002smote}, which can introduce artificial patterns, ROC-AUC was selected as the primary evaluation metric as it is robust to class imbalance and evaluates model performance across all classification thresholds.
 	
 	% ============================================================================
 	% 5. RESULTS

@@ -266,6 +266,41 @@
       \field{pages}{249\bibrangedash 274}
       \range{pages}{26}
     \endentry
+    \entry{fawcett2006introduction}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=9c15aa0b2a7683cefeaa12c991d0b1c2}{%
+           family={Fawcett},
+           familyi={F\bibinitperiod},
+           given={Tom},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{9c15aa0b2a7683cefeaa12c991d0b1c2}
+      \strng{fullhash}{9c15aa0b2a7683cefeaa12c991d0b1c2}
+      \strng{fullhashraw}{9c15aa0b2a7683cefeaa12c991d0b1c2}
+      \strng{bibnamehash}{9c15aa0b2a7683cefeaa12c991d0b1c2}
+      \strng{authorbibnamehash}{9c15aa0b2a7683cefeaa12c991d0b1c2}
+      \strng{authornamehash}{9c15aa0b2a7683cefeaa12c991d0b1c2}
+      \strng{authorfullhash}{9c15aa0b2a7683cefeaa12c991d0b1c2}
+      \strng{authorfullhashraw}{9c15aa0b2a7683cefeaa12c991d0b1c2}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Pattern Recognition Letters}
+      \field{number}{8}
+      \field{title}{An introduction to ROC analysis}
+      \field{volume}{27}
+      \field{year}{2006}
+      \field{pages}{861\bibrangedash 874}
+      \range{pages}{14}
+    \endentry
     \entry{hamori2018ensemble}{article}{}{}
       \name{author}{5}{}{%
         {{un=0,uniquepart=base,hash=1e564896237ef3e287ddf0ed4f2f9574}{%
@@ -366,6 +401,49 @@
       \field{pages}{1263\bibrangedash 1284}
       \range{pages}{22}
     \endentry
+    \entry{hosmer2013applied}{book}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=eb56d76565c91e8e1176f39012800080}{%
+           family={Hosmer\bibnamedelima Jr},
+           familyi={H\bibinitperiod\bibinitdelim J\bibinitperiod},
+           given={David\bibnamedelima W},
+           giveni={D\bibinitperiod\bibinitdelim W\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8cc8d044dfc89abe88de140d014c99fd}{%
+           family={Lemeshow},
+           familyi={L\bibinitperiod},
+           given={Stanley},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=0feba8187e3000f7fb1b5c0e58c8a42a}{%
+           family={Sturdivant},
+           familyi={S\bibinitperiod},
+           given={Rodney\bibnamedelima X},
+           giveni={R\bibinitperiod\bibinitdelim X\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {John Wiley \& Sons}%
+      }
+      \strng{namehash}{5ee8274bf39839aa69fe8dd61546a98a}
+      \strng{fullhash}{e55e03226dc349bfab16adaf9323b20a}
+      \strng{fullhashraw}{e55e03226dc349bfab16adaf9323b20a}
+      \strng{bibnamehash}{e55e03226dc349bfab16adaf9323b20a}
+      \strng{authorbibnamehash}{e55e03226dc349bfab16adaf9323b20a}
+      \strng{authornamehash}{5ee8274bf39839aa69fe8dd61546a98a}
+      \strng{authorfullhash}{e55e03226dc349bfab16adaf9323b20a}
+      \strng{authorfullhashraw}{e55e03226dc349bfab16adaf9323b20a}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{3rd}
+      \field{title}{Applied logistic regression}
+      \field{year}{2013}
+    \endentry
     \entry{hurley2016credit}{article}{}{}
       \name{author}{2}{}{%
         {{un=0,uniquepart=base,hash=3a04a6a233b3aa60f35d7c14b800c781}{%
@@ -402,6 +480,79 @@
       \field{year}{2016}
       \field{pages}{148\bibrangedash 216}
       \range{pages}{69}
+    \endentry
+    \entry{ke2017lightgbm}{article}{}{}
+      \name{author}{8}{}{%
+        {{un=0,uniquepart=base,hash=dadd87e1dad07728ce408894042b277e}{%
+           family={Ke},
+           familyi={K\bibinitperiod},
+           given={Guolin},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=359e0be87f96079a68d0ebf5355da232}{%
+           family={Meng},
+           familyi={M\bibinitperiod},
+           given={Qi},
+           giveni={Q\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d1cb1c25fa372c0b0885de8a27dc0222}{%
+           family={Finley},
+           familyi={F\bibinitperiod},
+           given={Thomas},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b5857cb363d37a3b1ff2c28da6586fc9}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Taifeng},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=06debc36f6b61a405e8f0da1c7ccd6ca}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Wei},
+           giveni={W\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a70fde7196864f8be0248eba2f7f29c8}{%
+           family={Ma},
+           familyi={M\bibinitperiod},
+           given={Weidong},
+           giveni={W\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=162ccfc475d9d2bc1177357e4913f290}{%
+           family={Ye},
+           familyi={Y\bibinitperiod},
+           given={Qiwei},
+           giveni={Q\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=716b89cbb7332599ebb33cc58a52f648}{%
+           family={Liu},
+           familyi={L\bibinitperiod},
+           given={Tie-Yan},
+           giveni={T\bibinithyphendelim Y\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{cec83448a93ad6a5cdc6f494a8f2dbcb}
+      \strng{fullhash}{138b620984178bfaf960c59da39eb14f}
+      \strng{fullhashraw}{138b620984178bfaf960c59da39eb14f}
+      \strng{bibnamehash}{138b620984178bfaf960c59da39eb14f}
+      \strng{authorbibnamehash}{138b620984178bfaf960c59da39eb14f}
+      \strng{authornamehash}{cec83448a93ad6a5cdc6f494a8f2dbcb}
+      \strng{authorfullhash}{138b620984178bfaf960c59da39eb14f}
+      \strng{authorfullhashraw}{138b620984178bfaf960c59da39eb14f}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Advances in Neural Information Processing Systems}
+      \field{title}{LightGBM: A highly efficient gradient boosting decision tree}
+      \field{volume}{30}
+      \field{year}{2017}
+      \field{pages}{3146\bibrangedash 3154}
+      \range{pages}{9}
     \endentry
     \entry{khandani2010consumer}{article}{}{}
       \name{author}{3}{}{%
@@ -449,59 +600,6 @@
       \field{year}{2010}
       \field{pages}{2767\bibrangedash 2787}
       \range{pages}{21}
-    \endentry
-    \entry{lessmann2015benchmarking}{article}{}{}
-      \name{author}{4}{}{%
-        {{un=0,uniquepart=base,hash=9bccaa7649c82b23838f00ba291960cc}{%
-           family={Lessmann},
-           familyi={L\bibinitperiod},
-           given={Stefan},
-           giveni={S\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=472b50c96c585262831beb84136b4639}{%
-           family={Baesens},
-           familyi={B\bibinitperiod},
-           given={Bart},
-           giveni={B\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=f87003d7c9dc0fe61fc9b22662fb1bd1}{%
-           family={Seow},
-           familyi={S\bibinitperiod},
-           given={Hsin-Vonn},
-           giveni={H\bibinithyphendelim V\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=e1381f0ab19da7b1c3fd34cc75fccaea}{%
-           family={Thomas},
-           familyi={T\bibinitperiod},
-           given={Lyn\bibnamedelima C},
-           giveni={L\bibinitperiod\bibinitdelim C\bibinitperiod},
-           givenun=0}}%
-      }
-      \list{publisher}{1}{%
-        {Elsevier}%
-      }
-      \strng{namehash}{4129914157c4d599b8829b62f1843a5b}
-      \strng{fullhash}{1e2dabc1de381a9069e4d6bcdc514cf1}
-      \strng{fullhashraw}{1e2dabc1de381a9069e4d6bcdc514cf1}
-      \strng{bibnamehash}{1e2dabc1de381a9069e4d6bcdc514cf1}
-      \strng{authorbibnamehash}{1e2dabc1de381a9069e4d6bcdc514cf1}
-      \strng{authornamehash}{4129914157c4d599b8829b62f1843a5b}
-      \strng{authorfullhash}{1e2dabc1de381a9069e4d6bcdc514cf1}
-      \strng{authorfullhashraw}{1e2dabc1de381a9069e4d6bcdc514cf1}
-      \field{sortinit}{L}
-      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{European Journal of Operational Research}
-      \field{number}{1}
-      \field{title}{Benchmarking state-of-the-art classification algorithms for credit scoring: An update of research}
-      \field{volume}{247}
-      \field{year}{2015}
-      \field{pages}{124\bibrangedash 136}
-      \range{pages}{13}
     \endentry
     \entry{lundberg2017unified}{article}{}{}
       \name{author}{2}{}{%
@@ -628,6 +726,42 @@
       \field{year}{2020}
       \field{pages}{56\bibrangedash 67}
       \range{pages}{12}
+    \endentry
+    \entry{molnar2020interpretable}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=1519de263bd388a2ce312e7171b96d0d}{%
+           family={Molnar},
+           familyi={M\bibinitperiod},
+           given={Christoph},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Self-published}%
+      }
+      \strng{namehash}{1519de263bd388a2ce312e7171b96d0d}
+      \strng{fullhash}{1519de263bd388a2ce312e7171b96d0d}
+      \strng{fullhashraw}{1519de263bd388a2ce312e7171b96d0d}
+      \strng{bibnamehash}{1519de263bd388a2ce312e7171b96d0d}
+      \strng{authorbibnamehash}{1519de263bd388a2ce312e7171b96d0d}
+      \strng{authornamehash}{1519de263bd388a2ce312e7171b96d0d}
+      \strng{authorfullhash}{1519de263bd388a2ce312e7171b96d0d}
+      \strng{authorfullhashraw}{1519de263bd388a2ce312e7171b96d0d}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Interpretable machine learning: A guide for making black box models explainable}
+      \field{year}{2020}
+      \verb{urlraw}
+      \verb https://christophm.github.io/interpretable-ml-book/
+      \endverb
+      \verb{url}
+      \verb https://christophm.github.io/interpretable-ml-book/
+      \endverb
     \endentry
     \entry{sirignano2016deep}{article}{}{}
       \name{author}{3}{}{%
@@ -1002,6 +1136,41 @@
       \field{pages}{249\bibrangedash 274}
       \range{pages}{26}
     \endentry
+    \entry{fawcett2006introduction}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=9c15aa0b2a7683cefeaa12c991d0b1c2}{%
+           family={Fawcett},
+           familyi={F\bibinitperiod},
+           given={Tom},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{9c15aa0b2a7683cefeaa12c991d0b1c2}
+      \strng{fullhash}{9c15aa0b2a7683cefeaa12c991d0b1c2}
+      \strng{fullhashraw}{9c15aa0b2a7683cefeaa12c991d0b1c2}
+      \strng{bibnamehash}{9c15aa0b2a7683cefeaa12c991d0b1c2}
+      \strng{authorbibnamehash}{9c15aa0b2a7683cefeaa12c991d0b1c2}
+      \strng{authornamehash}{9c15aa0b2a7683cefeaa12c991d0b1c2}
+      \strng{authorfullhash}{9c15aa0b2a7683cefeaa12c991d0b1c2}
+      \strng{authorfullhashraw}{9c15aa0b2a7683cefeaa12c991d0b1c2}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Pattern Recognition Letters}
+      \field{number}{8}
+      \field{title}{An introduction to ROC analysis}
+      \field{volume}{27}
+      \field{year}{2006}
+      \field{pages}{861\bibrangedash 874}
+      \range{pages}{14}
+    \endentry
     \entry{hamori2018ensemble}{article}{}{}
       \name{author}{5}{}{%
         {{un=0,uniquepart=base,hash=1e564896237ef3e287ddf0ed4f2f9574}{%
@@ -1102,6 +1271,49 @@
       \field{pages}{1263\bibrangedash 1284}
       \range{pages}{22}
     \endentry
+    \entry{hosmer2013applied}{book}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=eb56d76565c91e8e1176f39012800080}{%
+           family={Hosmer\bibnamedelima Jr},
+           familyi={H\bibinitperiod\bibinitdelim J\bibinitperiod},
+           given={David\bibnamedelima W},
+           giveni={D\bibinitperiod\bibinitdelim W\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8cc8d044dfc89abe88de140d014c99fd}{%
+           family={Lemeshow},
+           familyi={L\bibinitperiod},
+           given={Stanley},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=0feba8187e3000f7fb1b5c0e58c8a42a}{%
+           family={Sturdivant},
+           familyi={S\bibinitperiod},
+           given={Rodney\bibnamedelima X},
+           giveni={R\bibinitperiod\bibinitdelim X\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {John Wiley \& Sons}%
+      }
+      \strng{namehash}{5ee8274bf39839aa69fe8dd61546a98a}
+      \strng{fullhash}{e55e03226dc349bfab16adaf9323b20a}
+      \strng{fullhashraw}{e55e03226dc349bfab16adaf9323b20a}
+      \strng{bibnamehash}{e55e03226dc349bfab16adaf9323b20a}
+      \strng{authorbibnamehash}{e55e03226dc349bfab16adaf9323b20a}
+      \strng{authornamehash}{5ee8274bf39839aa69fe8dd61546a98a}
+      \strng{authorfullhash}{e55e03226dc349bfab16adaf9323b20a}
+      \strng{authorfullhashraw}{e55e03226dc349bfab16adaf9323b20a}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{3rd}
+      \field{title}{Applied logistic regression}
+      \field{year}{2013}
+    \endentry
     \entry{hurley2016credit}{article}{}{}
       \name{author}{2}{}{%
         {{un=0,uniquepart=base,hash=3a04a6a233b3aa60f35d7c14b800c781}{%
@@ -1138,6 +1350,79 @@
       \field{year}{2016}
       \field{pages}{148\bibrangedash 216}
       \range{pages}{69}
+    \endentry
+    \entry{ke2017lightgbm}{article}{}{}
+      \name{author}{8}{}{%
+        {{un=0,uniquepart=base,hash=dadd87e1dad07728ce408894042b277e}{%
+           family={Ke},
+           familyi={K\bibinitperiod},
+           given={Guolin},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=359e0be87f96079a68d0ebf5355da232}{%
+           family={Meng},
+           familyi={M\bibinitperiod},
+           given={Qi},
+           giveni={Q\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d1cb1c25fa372c0b0885de8a27dc0222}{%
+           family={Finley},
+           familyi={F\bibinitperiod},
+           given={Thomas},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b5857cb363d37a3b1ff2c28da6586fc9}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Taifeng},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=06debc36f6b61a405e8f0da1c7ccd6ca}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Wei},
+           giveni={W\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a70fde7196864f8be0248eba2f7f29c8}{%
+           family={Ma},
+           familyi={M\bibinitperiod},
+           given={Weidong},
+           giveni={W\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=162ccfc475d9d2bc1177357e4913f290}{%
+           family={Ye},
+           familyi={Y\bibinitperiod},
+           given={Qiwei},
+           giveni={Q\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=716b89cbb7332599ebb33cc58a52f648}{%
+           family={Liu},
+           familyi={L\bibinitperiod},
+           given={Tie-Yan},
+           giveni={T\bibinithyphendelim Y\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{cec83448a93ad6a5cdc6f494a8f2dbcb}
+      \strng{fullhash}{138b620984178bfaf960c59da39eb14f}
+      \strng{fullhashraw}{138b620984178bfaf960c59da39eb14f}
+      \strng{bibnamehash}{138b620984178bfaf960c59da39eb14f}
+      \strng{authorbibnamehash}{138b620984178bfaf960c59da39eb14f}
+      \strng{authornamehash}{cec83448a93ad6a5cdc6f494a8f2dbcb}
+      \strng{authorfullhash}{138b620984178bfaf960c59da39eb14f}
+      \strng{authorfullhashraw}{138b620984178bfaf960c59da39eb14f}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Advances in Neural Information Processing Systems}
+      \field{title}{LightGBM: A highly efficient gradient boosting decision tree}
+      \field{volume}{30}
+      \field{year}{2017}
+      \field{pages}{3146\bibrangedash 3154}
+      \range{pages}{9}
     \endentry
     \entry{khandani2010consumer}{article}{}{}
       \name{author}{3}{}{%
@@ -1185,59 +1470,6 @@
       \field{year}{2010}
       \field{pages}{2767\bibrangedash 2787}
       \range{pages}{21}
-    \endentry
-    \entry{lessmann2015benchmarking}{article}{}{}
-      \name{author}{4}{}{%
-        {{un=0,uniquepart=base,hash=9bccaa7649c82b23838f00ba291960cc}{%
-           family={Lessmann},
-           familyi={L\bibinitperiod},
-           given={Stefan},
-           giveni={S\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=472b50c96c585262831beb84136b4639}{%
-           family={Baesens},
-           familyi={B\bibinitperiod},
-           given={Bart},
-           giveni={B\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=f87003d7c9dc0fe61fc9b22662fb1bd1}{%
-           family={Seow},
-           familyi={S\bibinitperiod},
-           given={Hsin-Vonn},
-           giveni={H\bibinithyphendelim V\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=e1381f0ab19da7b1c3fd34cc75fccaea}{%
-           family={Thomas},
-           familyi={T\bibinitperiod},
-           given={Lyn\bibnamedelima C},
-           giveni={L\bibinitperiod\bibinitdelim C\bibinitperiod},
-           givenun=0}}%
-      }
-      \list{publisher}{1}{%
-        {Elsevier}%
-      }
-      \strng{namehash}{4129914157c4d599b8829b62f1843a5b}
-      \strng{fullhash}{1e2dabc1de381a9069e4d6bcdc514cf1}
-      \strng{fullhashraw}{1e2dabc1de381a9069e4d6bcdc514cf1}
-      \strng{bibnamehash}{1e2dabc1de381a9069e4d6bcdc514cf1}
-      \strng{authorbibnamehash}{1e2dabc1de381a9069e4d6bcdc514cf1}
-      \strng{authornamehash}{4129914157c4d599b8829b62f1843a5b}
-      \strng{authorfullhash}{1e2dabc1de381a9069e4d6bcdc514cf1}
-      \strng{authorfullhashraw}{1e2dabc1de381a9069e4d6bcdc514cf1}
-      \field{sortinit}{L}
-      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{European Journal of Operational Research}
-      \field{number}{1}
-      \field{title}{Benchmarking state-of-the-art classification algorithms for credit scoring: An update of research}
-      \field{volume}{247}
-      \field{year}{2015}
-      \field{pages}{124\bibrangedash 136}
-      \range{pages}{13}
     \endentry
     \entry{lundberg2020local}{article}{}{}
       \name{author}{10}{}{%
@@ -1364,6 +1596,42 @@
       \field{year}{2017}
       \field{pages}{4765\bibrangedash 4774}
       \range{pages}{10}
+    \endentry
+    \entry{molnar2020interpretable}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=1519de263bd388a2ce312e7171b96d0d}{%
+           family={Molnar},
+           familyi={M\bibinitperiod},
+           given={Christoph},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Self-published}%
+      }
+      \strng{namehash}{1519de263bd388a2ce312e7171b96d0d}
+      \strng{fullhash}{1519de263bd388a2ce312e7171b96d0d}
+      \strng{fullhashraw}{1519de263bd388a2ce312e7171b96d0d}
+      \strng{bibnamehash}{1519de263bd388a2ce312e7171b96d0d}
+      \strng{authorbibnamehash}{1519de263bd388a2ce312e7171b96d0d}
+      \strng{authornamehash}{1519de263bd388a2ce312e7171b96d0d}
+      \strng{authorfullhash}{1519de263bd388a2ce312e7171b96d0d}
+      \strng{authorfullhashraw}{1519de263bd388a2ce312e7171b96d0d}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Interpretable machine learning: A guide for making black box models explainable}
+      \field{year}{2020}
+      \verb{urlraw}
+      \verb https://christophm.github.io/interpretable-ml-book/
+      \endverb
+      \verb{url}
+      \verb https://christophm.github.io/interpretable-ml-book/
+      \endverb
     \endentry
     \entry{sirignano2016deep}{article}{}{}
       \name{author}{3}{}{%

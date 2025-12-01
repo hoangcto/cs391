@@ -130,7 +130,7 @@
 	Deep learning applications in credit risk have shown promising results but face adoption challenges. \textcite{sirignano2016deep} demonstrated the potential of deep learning for mortgage risk prediction, while \textcite{hamori2018ensemble} compared ensemble learning with deep learning approaches for default risk analysis.
 	%\subsection{Explainable AI in Financial Services}
 	
-	The need for model interpretability in regulated industries has driven significant research in explainable AI (XAI). \textcite{lundberg2017unified} introduced SHAP (SHapley Additive exPlanations), a unified framework for interpreting model predictions based on cooperative game theory. This approach assigns each feature an importance value for a particular prediction, providing both local (individual prediction) and global (overall model) explanations. \textcite{lundberg2020local} extended their work by demonstrating how SHAP values can provide global understanding of tree-based models. \textcite{bussmann2021explainable} specifically examined explainable machine learning in credit risk management, arguing that SHAP and similar techniques could bridge the gap between model performance and regulatory requirements. In this research, we will use SHAP to gauge the interpretability across machine learning models.
+	The need for model interpretability in regulated industries has driven significant research in explainable AI (XAI). \textcite{lundberg2017unified} introduced SHAP (SHapley Additive exPlanations), a unified framework for interpreting model predictions based on cooperative game theory. This approach assigns each feature an importance value for a particular prediction, providing both local (individual prediction) and global (overall model) explanations. \textcite{lundberg2020local, molnar2020interpretable} extended their work by demonstrating how SHAP values can provide global understanding of tree-based models. \textcite{bussmann2021explainable} specifically examined explainable machine learning in credit risk management, arguing that SHAP and similar techniques could bridge the gap between model performance and regulatory requirements. In this research, we will use SHAP to gauge the interpretability across machine learning models.
 
 	
 	% ============================================================================
@@ -139,11 +139,12 @@
 	
 	\section{Data}
 		
-	In aimming to addresses the research questions, this paper utilizes the \href{https://www.coursera.org/projects/data-science-coding-challenge-loan-default-prediction}{Loan Default Prediction dataset from Coursera's Loan Default Prediction Challenge}, which contains borrower information for credit default prediction. The dataset includes 255,347 observations with 16 columns describing a borrower's characteristics such as age, income, credit score, education, etc. that will be used as features (Table 1). Last but not least, there is a binary target variable indicating default status.
+	In aimming to addresses the research questions, this paper utilizes the \href{https://www.coursera.org/projects/data-science-coding-challenge-loan-default-prediction}{Loan Default Prediction dataset from Coursera's Loan Default Prediction Challenge}, which contains borrower information for credit default prediction. The dataset includes 255,347 observations with 16 columns describing a borrower's characteristics such as age, income, credit score, education, etc. that will be used as features (Table \ref{tab:features}). Last but not least, there is a binary target variable indicating default status.
 	
 	% Add a table of features
 	\begin{table}[H]
 		\centering
+		\caption{Dataset Features}
 		\label{tab:features}
 		\begin{tabular}{lll}
 			\toprule
@@ -167,20 +168,12 @@
 			HasCoSigner & Categorical & Co-signer status (Yes/No) \\
 			\bottomrule
 		\end{tabular}
-		\caption{Dataset Features}
+		
 	\end{table}
 	\subsection{Exploratory Data Analysis}
 	
-	I dug into the dataset to have a gasp of the features we are leveraging to answer the research questions (Table 2). The dataset composed of a loans being made to a diverse range of borrowers (income ranges from \$15,000 to \$150,000, loan amount from \$5,000 to \$250,000). Most importantly, the default rate within the dataset is around 11.6\%, which raised a question of imbalanced data. We would use SMOTE (Sysnthetic Minority Over-sampling Technique) to mitigate this, discussed in Section \ref{sec:preprocessing}
+	Prior to apply any algorithms, we looked through the dataset to have a gasp of the features being leveraged to answer the research questions (Table \ref{tab:summary_stats}). The dataset composed of loans being made to a diverse range of borrowers (income ranges from \$15,000 to \$150,000, loan amount from \$5,000 to \$250,000, etc.). Fortunately, there was no missing-values among the features. 
 	
-	% subsection subsection name (end)] 
-	% Add bullet points about your EDA findings
-	\begin{itemize}
-		\item Default rate: 11.6\% (Figure 1)
-		\item Notable patterns in feature distributions
-		\item Correlations between features
-		\item Any data quality issues
-	\end{itemize}
 	\begin{table}[htbp]
 	\centering
 	\caption{Summary Statistics}
@@ -202,61 +195,82 @@
 	}
 	\end{table}
 
+	Lastly, the default rate within the dataset is around 11.6\%, which raised a question of imbalanced data, which will be discussed in Section \ref{sec:imbalance}.
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.8\textwidth]{figures/default_distribution.png}
+		\caption{Distribution of Default vs Non-Default Cases}
+		\label{fig:default_dist}
+	\end{figure}
+	
+
+
+	\subsection{Data Preprocessing}\label{sec:preprocessing}
+	\subsubsection{Correlated Features}
+	To identify multicollinearity among the numerical features, a correlation matrix was computed (Figure \ref{fig:correlation_matrix}). Features with correlation coefficients above 0.8 would be considered highly correlated. In this dataset, we did not see any features with correlation coefficients higher than 0.2, therefore no numerical feature was dropped from the analysis.
 
 	\begin{figure}[H]
 		\centering
-		\includegraphics[width=0.6\textwidth]{figures/default_distribution.png}
-		\caption{Distribution of Default vs Non-Default Cases}
-		\label{fig:default_dist}
-		\end{figure}
+		\includegraphics[width=0.8\textwidth]{figures/correlated_heatmap.png}
+		\caption{Feature Correlation Heatmap}
+		\label{fig:correlation_matrix}
+	\end{figure}
 	
-	\subsection{Data Preprocessing}\label{sec:preprocessing}
+	\subsubsection{Normalization and Encoding}
+	Subsequently, the following steps were applied to preprocess the data:
 	
-	The following preprocessing steps were applied:
+	\begin{itemize}
+		\item \textbf{Train-Test Split:} The dataset was partitioned into training (80\%) and testing (20\%) subsets using stratified sampling to preserve the class distribution of the target variable (Default) in both sets. This is critical given the class imbalance present in the data (approximately 11.6\% default rate). A fixed random state (42) was used to ensure reproducibility across all experiments.
+
+		\item \textbf{Categorical Encoding:} One-hot encoding (dummy variable encoding) was applied to all categorical variables: Education (4 categories: High School, Bachelor's, Master's, PhD), EmploymentType (4 categories: Full-time, Part-time, Self-employed, Unemployed), MaritalStatus (3 categories: Single, Married, Divorced), HasMortgage (2 categories: Yes, No), HasDependents (2 categories: Yes, No), LoanPurpose (5 categories: Home, Auto, Education, Business, Other), and HasCoSigner (2 categories: Yes, No). One-hot encoding was chosen over label encoding to avoid introducing ordinal relationships where none exist, which could mislead tree-based and linear models.
+
+		\item \textbf{Feature Scaling/Normalization:} Numerical features (Age, Income, LoanAmount, CreditScore, MonthsEmployed, NumCreditLines, InterestRate, LoanTerm, DTIRatio) were standardized using z-score normalization:
+		\begin{equation}
+		z = \frac{x - \mu}{\sigma}
+		\end{equation}
+		where $\mu$ is the feature mean and $\sigma$ is the standard deviation, computed from the training set only to prevent data leakage. Standardization ensures all features have mean 0 and standard deviation 1, which is essential for gradient-based optimization in logistic regression and neural networks, and improves convergence speed. While tree-based models (XGBoost) are invariant to feature scaling, standardization was applied uniformly for consistency.
+
+		\item \textbf{Final Feature Set:} After preprocessing, the original 16 predictor variables (9 numerical, 7 categorical) were transformed into 24 features: 9 standardized numerical features plus 15 binary indicator variables from one-hot encoding.
+	\end{itemize}
 	
-	\begin{enumerate}
-		\item \textbf{Train-Test Split:} The data was split 70\% for training and 30\% for testing prior to any preprocessing to prevent data leakage.
-		
-		\item \textbf{Categorical Encoding:} One-hot encoding was applied to all categorical variables (Education, EmploymentType, MaritalStatus, HasMortgage, HasDependents, LoanPurpose, HasCoSigner), creating binary indicator variables while dropping the first category to avoid multicollinearity.
-		
-		\item \textbf{Feature Scaling/Normalization:} Numerical features were standardized using StandardScaler to have mean 0 and standard deviation 1. This is particularly important for logistic regression and neural networks, which are sensitive to feature scales.
-		
-		\item \textbf{Final Feature Set:} After one-hot encoding, the final feature set consisted of [X] features.
-	\end{enumerate}
+	\subsection{Class Imbalance Considerations}\label{sec:imbalance}
 	
-	\subsection{Class Imbalance Considerations}
-	
-	With a default rate of [X\%], the dataset exhibits [mild/moderate/severe] class imbalance. Rather than applying resampling techniques like SMOTE \parencite{chawla2002smote}, which can introduce artificial patterns, ROC-AUC was selected as the primary evaluation metric as it is robust to class imbalance and evaluates model performance across all classification thresholds.
+	With a default rate of 11.6\%, there is a noticeable imbalance in the data. Rather than applying resampling techniques like SMOTE \parencite{chawla2002smote}, which can introduce artificial patterns, ROC-AUC was selected as the primary evaluation metric as it is robust to class imbalance and evaluates model performance across all classification thresholds \parencite{fawcett2006introduction}.
 	% ============================================================================
 	% 4. METHODOLOGY
 	% ============================================================================
 	
-	\section{Methodology}
-	
-	\subsection{Research Design}
-	
-	This study employs a comparative experimental approach to evaluate five machine learning models across the interpretability spectrum. The research follows a quantitative methodology with cross-validation and standardized evaluation metrics to ensure robust and reproducible results.
+	\section{Methods}
 	
 	\subsection{Model Selection}
 	
-	Five machine learning models were selected to represent different levels of interpretability and modeling approaches:
+	Four machine learning models were selected to represent different levels of interpretability and modeling approaches:
 	
 	\subsubsection{Tier 1: Highly Interpretable Models}
-	
-	\textbf{Logistic Regression:} Selected as the baseline model due to its widespread use in the credit industry and direct coefficient interpretation. Logistic regression provides odds ratios for each feature, making it straightforward to explain predictions to regulators and customers.
-	
-	\textbf{Decision Tree:} Chosen for its visual interpretability and rule-based decision structure. Decision trees can be directly translated into if-then rules, offering complete transparency in the decision-making process.
-	
+
+	\textbf{Logistic Regression:} Selected as the baseline model due to its widespread adoption in the credit industry and regulatory acceptance. Logistic regression models the probability of default using the sigmoid function:
+	\begin{equation}
+	P(Y=1|X) = \frac{1}{1 + e^{-(\beta_0 + \beta_1 X_1 + ... + \beta_n X_n)}}
+	\end{equation}
+	where each coefficient $\beta_i$ can be exponentiated to obtain odds ratios, providing direct interpretation: a one-unit increase in feature $X_i$ multiplies the odds of default by $e^{\beta_i}$ \parencite{hosmer2013applied}. This transparency makes logistic regression particularly valuable for regulatory compliance under frameworks such as the Equal Credit Opportunity Act (ECOA) and SR 11-7, which require explainable lending decisions. The model was trained with L2 regularization (C=1.0) and a maximum of 1,000 iterations to ensure convergence.
+
 	\subsubsection{Tier 2: Moderately Interpretable Models}
-	
-	\textbf{Random Forest:} An ensemble method that aggregates predictions from multiple decision trees. While individual tree predictions are interpretable, the ensemble nature introduces complexity. However, feature importance measures provide global interpretability.
-	
-	\textbf{XGBoost (Gradient Boosting):} A state-of-the-art gradient boosting implementation known for high performance in structured data tasks. XGBoost provides feature importance scores and supports SHAP analysis, offering a balance between performance and explainability.
-	
+
+	\textbf{LightGBM:} A gradient boosting framework developed by Microsoft that uses histogram-based algorithms and leaf-wise tree growth for computational efficiency \parencite{ke2017lightgbm}. Unlike traditional gradient boosting methods that grow trees level-wise, LightGBM grows trees by splitting the leaf with the maximum delta loss, often resulting in deeper, more asymmetric trees that can capture complex interactions. 
+
+	\noindent\textbf{XGBoost (Extreme Gradient Boosting):} A regularized gradient boosting implementation that has become the de facto standard for tabular data competitions and industry applications. XGBoost minimizes a regularized objective function:
+	\begin{equation}
+	\mathcal{L}(\phi) = \sum_{i} l(\hat{y}_i, y_i) + \sum_{k} \Omega(f_k)
+	\end{equation}
+	where $l$ is a differentiable convex loss function and $\Omega(f_k) = \gamma T + \frac{1}{2}\lambda ||w||^2$ penalizes model complexity through the number of leaves $T$ and L2 regularization on leaf weights $w$. This built-in regularization helps prevent overfitting, a common concern with high-dimensional credit data. 
 	\subsubsection{Tier 3: Low Interpretability Models}
-	
-	\textbf{Neural Network:} A feedforward neural network with multiple hidden layers represents the ``black box'' end of the spectrum. Neural networks can capture complex non-linear relationships but lack inherent interpretability without external explanation methods like SHAP.
-	
+
+	\textbf{Neural Network:} A feedforward multilayer perceptron (MLP) represents the ``black box'' end of the interpretability spectrum. The architecture consists of an input layer matching the 24 preprocessed features, followed by three hidden layers with 128, 64, and 32 neurons respectively, each using ReLU activation functions:
+	\begin{equation}
+	\text{ReLU}(x) = \max(0, x)
+	\end{equation}
+	Dropout regularization (rate = 0.3) was applied between hidden layers to prevent overfitting, and the output layer uses sigmoid activation for binary classification. The network was trained using the Adam optimizer with binary cross-entropy loss and early stopping (patience = 10 epochs) monitoring validation loss. 
 	\subsection{Evaluation Metrics}
 	
 	Model performance was assessed using multiple classification metrics:
@@ -271,10 +285,7 @@
 	
 	ROC-AUC was selected as the primary metric because it evaluates model performance across all classification thresholds and is less sensitive to class imbalance than accuracy \parencite{he2009learning}.
 	
-	\subsection{Hyperparameter Tuning}
-	
-	For each model (except logistic regression), hyperparameter optimization was performed using GridSearchCV with 5-fold stratified cross-validation. Stratified folds maintain class distribution in each fold, which is crucial for imbalanced datasets. The optimization metric was ROC-AUC to identify configurations that maximize discriminative ability.
-	
+
 	\subsection{SHAP Implementation}
 	
 	SHAP values were calculated for all models to enable fair comparison of explainability:
@@ -314,12 +325,13 @@
 		\end{tabular}
 	\end{table}
 	
-	Key findings from the performance comparison:
+	\noindent Key findings from the performance comparison:
+
 	\begin{itemize}
-		\item [Best performing model with ROC-AUC of X.XXX]
-		\item [Baseline logistic regression achieved ROC-AUC of X.XXX]
-		\item [Ranking and performance differences between models]
-		\item [Notable patterns in precision vs recall tradeoffs]
+		\item Best performing model with ROC-AUC of X.XXX
+		\item Baseline logistic regression achieved ROC-AUC of X.XXX
+		\item Ranking and performance differences between models
+		\item Notable patterns in precision vs recall tradeoffs
 	\end{itemize}
 	
 	% Add ROC curves figure
@@ -411,118 +423,9 @@
 	
 	\textbf{Neural Network:} [Describe performance relative to expectations, can SHAP make it explainable?]
 	
-	% ============================================================================
-	% 6. DISCUSSION
-	% ============================================================================
-	
-	\section{Discussion}
-	
-	\subsection{Interpretation of Findings}
-	
-	\subsubsection{Research Question 1: Best Performing Model}
-	
-	[Model Name] achieved the highest ROC-AUC of [X.XXX], outperforming the baseline logistic regression by [X.X\%]. This result [aligns with/contradicts] previous findings in the literature \parencite{lessmann2015benchmarking}. The superior performance can be attributed to [discuss why this model performed best - ability to capture non-linear relationships, ensemble benefits, etc.].
-	
-	\subsubsection{Research Question 2: Cost of Interpretability}
-	
-	The quantified performance gap of [X.XXX] ([XX.X\%]) between the best overall model and the best interpretable model represents the tangible cost that financial institutions pay for regulatory compliance. From a business perspective, this translates to:
-	
-	\begin{itemize}
-		\item [Estimated number of] additional missed defaults per [time period]
-		\item [Financial impact] in potential losses
-		\item Conversely, fewer false alarms leading to [customer experience benefits]
-	\end{itemize}
-	
-	Whether this cost is acceptable depends on institutional priorities and regulatory constraints. For institutions facing strict regulatory scrutiny or serving populations with fairness concerns, the interpretability benefits may justify the performance sacrifice.
-	
-	\subsubsection{Research Question 3: SHAP Effectiveness}
-	
-	The SHAP analysis demonstrated that complex models can be made substantially more explainable. Key findings include:
-	
-	\begin{itemize}
-		\item SHAP values provided consistent feature importance rankings across [most/all] models
-		\item Individual prediction explanations identified the specific features driving each decision
-		\item [Discuss any limitations or inconsistencies observed]
-	\end{itemize}
-	
-	However, the question of whether SHAP explanations satisfy regulatory requirements remains complex. While SHAP provides mathematically rigorous explanations based on cooperative game theory \parencite{lundberg2017unified}, regulatory agencies may still prefer the direct interpretability of logistic regression coefficients.
-	
-	\subsection{Comparison to Literature}
-	
-	These findings [align with/extend/contradict] existing research in several ways:
-	
-	\begin{itemize}
-		\item \textcite{lessmann2015benchmarking} found that [comparison point]
-		\item \textcite{bussmann2021explainable} argued that [comparison point]
-		\item This study's novel contribution is [what makes your findings unique]
-	\end{itemize}
-	
-	\subsection{Business and Regulatory Implications}
-	
-	\subsubsection{Recommendations for Lenders}
-	
-	Based on these findings, financial institutions should consider the following strategic approaches:
-	
-	\textbf{If interpretability is paramount:} Use [most interpretable model] with SHAP analysis for additional insights. Accept the [X\%] performance cost as the price of regulatory certainty.
-	
-	\textbf{If performance is critical:} Deploy [best performing model] with comprehensive SHAP analysis for adverse action explanations. Engage proactively with regulators to establish acceptability of SHAP-based explanations.
-	
-	\textbf{Balanced approach:} [Middle-ground model like Random Forest] offers [performance characteristics] while maintaining [interpretability characteristics].
-	
-	\subsubsection{Regulatory Considerations}
-	
-	Regulators face the challenge of balancing consumer protection with innovation. This research suggests that SHAP-enabled complex models could satisfy the spirit of adverse action requirements while enabling better risk assessment. Policy recommendations include:
-	
-	\begin{itemize}
-		\item Develop guidelines for acceptable explanation methods beyond coefficient interpretation
-		\item Require lenders to validate that SHAP explanations are accessible to consumers
-		\item Consider performance-interpretability tradeoffs in model approval processes
-	\end{itemize}
-	
-	\subsection{Limitations}
-	
-	This study has several limitations that should be considered when interpreting results:
-	
-	\begin{enumerate}
-		\item \textbf{Single Dataset:} Results are based on one credit dataset. Findings may not generalize to all credit portfolios or lending contexts.
-		
-		\item \textbf{Hyperparameter Optimization:} Due to computational constraints, hyperparameter search spaces were limited. More extensive tuning might improve model performance.
-		
-		\item \textbf{Class Imbalance:} While ROC-AUC is robust to imbalance, real-world default rates may differ from the dataset, affecting model performance.
-		
-		\item \textbf{SHAP Computational Cost:} Calculating SHAP values for large datasets or complex models can be computationally expensive, potentially limiting real-time application.
-		
-		\item \textbf{Model Selection:} Other models (e.g., Support Vector Machines, LightGBM) were not evaluated and might offer different performance-interpretability tradeoffs.
-		
-		\item \textbf{Feature Engineering:} Limited feature engineering was performed. Domain-specific features or interaction terms might improve performance.
-		
-		\item \textbf{Temporal Validation:} The study uses a static train-test split. Performance may degrade over time as borrower behavior evolves.
-	\end{enumerate}
-	
-	\subsection{Future Research Directions}
-	
-	Several avenues for future research emerge from this study:
-	
-	\begin{enumerate}
-		\item \textbf{Multi-Dataset Validation:} Replicate the analysis across multiple credit datasets from different industries and geographies to assess generalizability.
-		
-		\item \textbf{Deep Learning Architectures:} Explore more sophisticated neural network architectures (e.g., attention mechanisms, graph neural networks) and their explainability.
-		
-		\item \textbf{Alternative Data Sources:} Incorporate alternative credit data (e.g., utility payments, rent history) and evaluate its impact on the interpretability-performance tradeoff.
-		
-		\item \textbf{Temporal Analysis:} Conduct longitudinal studies to understand how model performance and explanations evolve over time.
-		
-		\item \textbf{Fairness Analysis:} Examine whether different models exhibit different levels of bias across demographic groups and how SHAP can support fairness auditing.
-		
-		\item \textbf{Cost-Sensitive Learning:} Incorporate business-specific costs of false positives and false negatives into model optimization.
-		
-		\item \textbf{Human Studies:} Conduct user studies with regulators and consumers to evaluate whether SHAP explanations are actually understandable and satisfactory.
-		
-		\item \textbf{Hybrid Approaches:} Develop models that explicitly optimize for both performance and interpretability simultaneously.
-	\end{enumerate}
 	
 	% ============================================================================
-	% 7. CONCLUSION
+	% 6. CONCLUSION
 	% ============================================================================
 	
 	\section{Conclusion}
@@ -578,6 +481,7 @@
 	% ============================================================================
 	
 	\newpage
+	%\nocite{*}
 	\printbibliography[title=References]
 	
 

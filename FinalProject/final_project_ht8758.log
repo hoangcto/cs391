@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.12.1)  1 DEC 2025 15:37
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.12.1)  1 DEC 2025 21:15
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -714,82 +714,77 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 75.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
-{C:/Users/Hoang/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/Hoang/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}] [2] [3] [4] [5]
-<figures/default_distribution.png, id=182, 570.933pt x 354.123pt>
+{C:/Users/Hoang/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/Hoang/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}] [2] [3] [4]
+<figures/default_distribution.png, id=160, 570.933pt x 354.123pt>
 File: figures/default_distribution.png Graphic file (type png)
 <use figures/default_distribution.png>
-Package pdftex.def Info: figures/default_distribution.png  used on input line 202.
+Package pdftex.def Info: figures/default_distribution.png  used on input line 191.
 (pdftex.def)             Requested size: 375.80544pt x 233.10048pt.
- [6]
-<figures/correlated_heatmap.png, id=190, 794.2473pt x 726.3135pt>
+ [5]
+<figures/correlated_heatmap.png, id=168, 794.2473pt x 726.3135pt>
 File: figures/correlated_heatmap.png Graphic file (type png)
 <use figures/correlated_heatmap.png>
-Package pdftex.def Info: figures/correlated_heatmap.png  used on input line 215.
+Package pdftex.def Info: figures/correlated_heatmap.png  used on input line 204.
 (pdftex.def)             Requested size: 422.77664pt x 386.6178pt.
- [7 <./figures/default_distribution.png>]
-LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 224.
+ [6 <./figures/default_distribution.png>]
+LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 213.
  (C:\Users\Hoang\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
-) [8 <./figures/correlated_heatmap.png>] [9] [10] [11] [12]
-<figures/roc_curves.png, id=247, 714.0276pt x 569.4876pt>
+) [7 <./figures/correlated_heatmap.png>] [8] [9] [10]
+<figures/roc_curves.png, id=219, 714.0276pt x 569.4876pt>
 File: figures/roc_curves.png Graphic file (type png)
 <use figures/roc_curves.png>
-Package pdftex.def Info: figures/roc_curves.png  used on input line 334.
+Package pdftex.def Info: figures/roc_curves.png  used on input line 311.
 (pdftex.def)             Requested size: 399.29463pt x 318.4764pt.
- [13 <./figures/roc_curves.png>]
-<figures/shap_logistic_regression.png, id=257, 569.7285pt x 678.6153pt>
+ [11] [12 <./figures/roc_curves.png>]
+<figures/shap_logistic_regression.png, id=233, 569.7285pt x 678.6153pt>
 File: figures/shap_logistic_regression.png Graphic file (type png)
 <use figures/shap_logistic_regression.png>
-Package pdftex.def Info: figures/shap_logistic_regression.png  used on input line 359.
+Package pdftex.def Info: figures/shap_logistic_regression.png  used on input line 336.
 (pdftex.def)             Requested size: 230.18253pt x 274.17499pt.
-<figures/shap_xgboost.png, id=258, 569.7285pt x 678.6153pt>
+<figures/shap_xgboost.png, id=234, 569.7285pt x 678.6153pt>
 File: figures/shap_xgboost.png Graphic file (type png)
 <use figures/shap_xgboost.png>
-Package pdftex.def Info: figures/shap_xgboost.png  used on input line 364.
+Package pdftex.def Info: figures/shap_xgboost.png  used on input line 341.
 (pdftex.def)             Requested size: 230.18253pt x 274.17499pt.
-<figures/shap_lightgbm.png, id=259, 569.7285pt x 678.6153pt>
+<figures/shap_lightgbm.png, id=235, 569.7285pt x 678.6153pt>
 File: figures/shap_lightgbm.png Graphic file (type png)
 <use figures/shap_lightgbm.png>
-Package pdftex.def Info: figures/shap_lightgbm.png  used on input line 371.
+Package pdftex.def Info: figures/shap_lightgbm.png  used on input line 348.
 (pdftex.def)             Requested size: 230.18253pt x 274.17499pt.
-<figures/shap_neural_network.png, id=260, 569.7285pt x 678.6153pt>
+<figures/shap_neural_network.png, id=236, 569.7285pt x 678.6153pt>
 File: figures/shap_neural_network.png Graphic file (type png)
 <use figures/shap_neural_network.png>
-Package pdftex.def Info: figures/shap_neural_network.png  used on input line 376.
+Package pdftex.def Info: figures/shap_neural_network.png  used on input line 353.
 (pdftex.def)             Requested size: 230.18253pt x 274.17499pt.
- [14] [15 <./figures/shap_logistic_regression.png> <./figures/shap_xgboost.png> <./figures/shap_lightgbm.png> <./figures/shap_neural_network.png>] [16]
-Overfull \hbox (2.39168pt too wide) in paragraph at lines 411--412
-\T1/ptm/m/n/12 For fi-nan-cial in-sti-tu-tions nav-i-gat-ing the performance-interpretability trade-off, a multi-pronged strat-
- []
-
-[17] [18] [19] [20]
-Overfull \hbox (0.70107pt too wide) in paragraph at lines 422--422
+ [13] [14 <./figures/shap_logistic_regression.png> <./figures/shap_xgboost.png> <./figures/shap_lightgbm.png> <./figures/shap_neural_network.png>] [15] [16] [17] [18] [19]
+Overfull \hbox (0.70107pt too wide) in paragraph at lines 386--386
 [][]\T1/ptm/m/n/12 Sirignano, J., Sad-hwani, A., & Giesecke, K. (2016). Deep learn-ing for mort-gage risk. \T1/ptm/m/it/12 arXiv preprint
  []
 
-[21] (final_project_ht8758.aux)
+[20] (final_project_ht8758.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
  ***********
 Package rerunfilecheck Info: File `final_project_ht8758.out' has not changed.
-(rerunfilecheck)             Checksum: 25F6D2D1FA9EC43A9E83B868101DA901;3809.
+(rerunfilecheck)             Checksum: 298A1F3D6174F06F0D7C1DFC588CF41E;2981.
 Package logreq Info: Writing requests to 'final_project_ht8758.run.xml'.
 \openout1 = `final_project_ht8758.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 20966 strings out of 474486
- 373127 string characters out of 5743755
+ 20955 strings out of 474486
+ 372960 string characters out of 5743755
  1938542 words of memory out of 5000000
- 42917 multiletter control sequences out of 15000+600000
+ 42912 multiletter control sequences out of 15000+600000
  595507 words of font info for 87 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,9n,81p,1727b,5052s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,9n,81p,1835b,5052s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/Hoang/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Hoang/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/Hoang/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/Hoang/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Hoang/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Hoang/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/Hoang/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Hoang/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Hoang/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/Hoang/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/Hoang/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/Hoang/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on final_project_ht8758.pdf (21 pages, 2058158 bytes).
+Output written on final_project_ht8758.pdf (20 pages, 2054766 bytes).
 PDF statistics:
- 381 PDF objects out of 1000 (max. 8388607)
- 89 named destinations out of 1000 (max. 500000)
- 228 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 360 PDF objects out of 1000 (max. 8388607)
+ 83 named destinations out of 1000 (max. 500000)
+ 188 words of extra memory for PDF output out of 10000 (max. 10000000)
 

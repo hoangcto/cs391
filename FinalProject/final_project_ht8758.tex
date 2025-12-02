@@ -55,7 +55,7 @@
 % TITLE PAGE
 % ============================================================================
 
-\title{Predicting Credit Card Default with Machine Learning: A Comparative Analysis of Model Performance and Explainability}
+\title{Predicting Loan Default: A Comparative Analysis of Model Performance and Explainability}
 
 \author{
 	Hoang To (ht8758) \\
@@ -80,17 +80,9 @@
 	% ============================================================================
 	
 	\begin{abstract}
-		% Write your abstract here (200-250 words)
-		% Include:
-		% - Research problem/motivation
-		% - Methods used (5 ML models)
-		% - Key findings (best model, performance gap)
-		% - Main conclusion (interpretability tradeoff)
+	
+	Credit underwriting is the lifeblood of financial institutions, yet regulatory requirements for model interpretability have constrained the adoption of state-of-the-art machine learning algorithms in credit risk assessment. This study investigates the magnitude of this interpretability-performance tradeoff by comparing four machine learning models (logistic regression, LightGBM, XGBoost, and neural networks) on a dataset of 255,347 loan records from Coursera's Loan Default Prediction Challenge. Model performance was evaluated using ROC-AUC as the primary metric, with SHAP (SHapley Additive exPlanations) employed to assess explainability across architectures. Results indicate that XGBoost achieved the highest predictive performance (ROC-AUC = 0.759), while logistic regression, the most interpretable model, attained a competitive ROC-AUC of 0.753, a performance gap of 0.82\%. Notably, SHAP analysis revealed consistent feature importance rankings across all models.  These findings suggest that the performance cost of regulatory compliance may be smaller than commonly assumed, and that explainable AI techniques can provide consistent interpretations even for complex methods. 
 		
-		Credit underwriting is the life blood of financial institutions. However, due to regulatory requirements for model interpretability, financial institutions currently do not use the state of the art machine learning algorithms in underwriting credit risk, namely neural network based. This study sought to understand how much underwriting performance, and lending profitability, banks are giving up to be in compliance with regulatory bodies. We use data from Coursera's Credit Default challenge, which contains 2xx,xxx data points. I conducted a comprehensive comparative analysis of four machine learning models— logistic regression, XGBoost, LightGBM, and neural networks—evaluating their predictive performance and explainability using SHAP. The results indicate that XGBoost outperforms other models with an ROC-AUC of [X.XXX], while logistic regression, the most interpretable model, achieves an ROC-AUC of [X.XXX], revealing a performance gap of [X.XXX] ([XX.X\%]). Additionally, SHAP analysis demonstrated consistent feature importance across models, suggesting that explainable AI techniques can enhance the interpretability of complex models. However, the tradeoff between performance and interpretability remains a significant consideration for practitioners. The findings provide actionable insights for financial institutions seeking to balance regulatory compliance with predictive accuracy in credit risk assessment.
-		
-		\noindent
-		\textbf{Keywords:} Credit risk, machine learning, explainable AI, SHAP, default prediction, interpretability
 	\end{abstract}
 	
 	\newpage
@@ -102,13 +94,10 @@
 	\section{Introduction}
 	
 	% Background and Motivation (2-3 paragraphs)
-	Since the dawn of banking, credit has been the core business through which financial institutions grow and compete with one another. The credit card industry operates at the intersection of risk management and customer access to credit. As a finance professional at a leading lender, I experience first hands how our capacity to lend ties directly with our ability to underwrite consumer risk appropriate. Financial institutions must accurately predict which borrowers are likely to default while simultaneously maintaining transparency in their lending decisions. This dual challenge has intensified with the advancement of machine learning techniques that offer superior predictive accuracy but often lack the interpretability required for regulatory compliance. 
-	
-	% The Regulatory Challenge (1-2 paragraphs)
-	The Equal Credit Opportunity Act (ECOA) mandates that lenders provide specific reasons for adverse credit decisions \parencite{ecoa1974}. Regulatory guidance from the Federal Reserve and Consumer Financial Protection Bureau reinforces these requirements \parencite{federalreserve2019report, cfpb2020acts}. This has created a significant barrier to adopting advanced machine learning models, particularly neural networks, which are often considered ``black boxes'' due to their complex internal mechanisms \parencite{hurley2016credit}. As a result, many financial institutions continue to rely on logistic regression and tree-based models despite potentially sacrificing predictive performance \parencite{lessmann2015benchmarking, cfpb2020acts}.
-	
+	Since the dawn of banking, credit has been the core business through which financial institutions grow and compete with one another. The discipline operates at the intersection of risk management and customer access to credit. As a finance professional at a leading lending company, I experience first hands how our capacity to lend ties directly with our ability to underwrite consumer risk appropriately. At the same time, the Equal Credit Opportunity Act (ECOA) mandates that lenders provide specific reasons for adverse credit decisions \parencite{ecoa1974}. Regulatory guidance from the Federal Reserve and Consumer Financial Protection Bureau reinforces these requirements \parencite{federalreserve2019report, cfpb2020acts}. This has created a significant barrier to adopting advanced machine learning models, particularly neural networks, which are often considered ``black boxes'' due to their complex internal mechanisms \parencite{hurley2016credit}. Thus, financial institutions must predict which borrowers are likely to default while simultaneously maintaining transparency in their lending decisions. This dual challenge has intensified with the advancement of machine learning techniques that offer superior predictive accuracy but often lack the interpretability required for regulatory compliance. As a result, many financial institutions continue to rely on logistic regression and tree-based models despite potentially sacrificing predictive performance \parencite{lessmann2015benchmarking, cfpb2020acts}.
+	 
 	% Research Questions
-	This paper aims to understand two fundamental questions: (1) Are neural network based models outperforming more interpretable logistics and tree-based models? and (2) Can SHAP (SHapley Additive exPlanations) provide sufficient interpretability for complex models to meet regulatory requirements? [CAN WE EVEN USE THIS]. Accurate credit worthiness assessments would help both the lenders and borrowers, whereas the former can assign appropriate level of risk to the borrowers and lower the risk of unexpected losses, allowing the latter to borrow more cheaply \parencite{einav2013impact}.  
+	This paper aims to understand two fundamental questions: (1) Are neural network based models outperforming more interpretable logistics and tree-based models? and (2) Can we better explain what drive prediction outcomes of more complex neural network based models to sufficiently meet regulatory requirements? Accurate credit worthiness assessments would help both the lenders and borrowers, whereas the former can assign appropriate level of risk to the borrowers and lower the risk of unexpected losses, allowing the latter to borrow more cheaply \parencite{einav2013impact}.  
 	
 	% Contribution and Paper Structure
 	By comparing four distinct machine learning models, ranging from highly interpretable model (logistic regression) to the ``black box'' model (neural networks), and employing SHAP values for explainability analysis, this paper seeks to provide a repeatable framework to quantify the interpretability-performance tradeoff that financial institutions face, providing actionable insights for practitioners navigating the balance between model performance and regulatory compliance.
@@ -121,16 +110,16 @@
 	
 	%\subsection{Traditional Credit Scoring Methods}
 	
-	Credit scoring has been a key pillar of lending decisions for decades. Traditional approaches, particularly FICO scores and logistic regression models, have dominated the industry due to their interpretability and regulatory acceptance \parencite{baesens2003benchmarking}. Subsequent research has expanded these comparisons across diverse datasets and algorithms \parencite{lessmann2015benchmarking, brown2012experimental}. These methods rely on a limited set of financial and demographic variables to predict default probability, with coefficients that can be directly interpreted as the marginal effect of each variable.
+	Credit scoring has been a key pillar of lending decisions for decades. Traditional approaches, particularly FICO scores and logistic regression models, have dominated the industry due to their interpretability and regulatory acceptance \parencite{baesens2003benchmarking, lessmann2015benchmarking, brown2012experimental}. These methods rely on a limited set of financial and demographic variables to predict default probability, with coefficients that can be directly interpreted as the marginal effect of each variable.
 	
 	%\subsection{Machine Learning in Credit Risk Assessment}
 	
-	Within the past two decades, the application of machine learning to credit risk has evolved significantly. Comparative studies demonstrated that ensemble methods could outperform traditional logistic regression \parencite{khandani2010consumer}. Random forests and gradient boosting have emerged as powerful ensemble methods for credit scoring. \textcite{wang2011comparative} found that ensemble learning approaches consistently outperformed single classifiers in credit risk assessment. XGBoost, a scalable tree boosting system \parencite{chen2016xgboost}, has become particularly popular due to its performance and built-in handling of missing values. \textcite{xia2017boosted} demonstrated that boosted decision trees with Bayesian hyperparameter optimization can further enhance credit scoring performance.
+	Within the last two decades, the application of machine learning to credit risk has improved significantly. Benchmarking studies demonstrated that ensemble methods could outperform traditional logistic regression \parencite{khandani2010consumer} with random forests and gradient boosting emerged as powerful algorithms for credit scoring. \textcite{wang2011comparative} found that ensemble approaches consistently outperformed single classifiers in credit risk assessment. XGBoost, a scalable tree boosting system \parencite{chen2016xgboost}, has become particularly popular due to its performance and built-in handling of missing values. \textcite{xia2017boosted} demonstrated that boosted decision trees with Bayesian optimization could further improve credit scoring performance.
 	
-	Deep learning applications in credit risk have shown promising results but face adoption challenges. \textcite{sirignano2016deep} demonstrated the potential of deep learning for mortgage risk prediction, while \textcite{hamori2018ensemble} compared ensemble learning with deep learning approaches for default risk analysis. \textcite{kvamme2018predicting} applied convolutional neural networks to mortgage default prediction, while \textcite{bellotti2013forecasting} explored dynamic models for credit card default forecasting.
+	Deep learning applications in credit risk have shown promising results but has faced adoption challenges. \textcite{sirignano2016deep} demonstrated the potential of deep learning for mortgage risk prediction, while \textcite{hamori2018ensemble} compared ensemble learning with deep learning approaches for default risk analysis. \textcite{kvamme2018predicting} applied convolutional neural networks to mortgage default prediction, while \textcite{bellotti2013forecasting} explored dynamic models for credit card default forecasting. However, the ``black box'' nature of neural networks raises concerns about interpretability and regulatory compliance \parencite{hurley2016credit}. This has limited their widespread usage in credit risk assessment despite their predictive power.
 	%\subsection{Explainable AI in Financial Services}
 	
-	The need for model interpretability in regulated industries has driven significant research in explainable AI. Industry reports from major consulting firms have highlighted the growing importance of explainable AI in financial services \parencite{deloitte2021ai, mckinsey2020future, pwc2021explainable}. FICO, a leading credit scoring company, has published guidance on implementing explainable machine learning for credit risk \parencite{fico2022explainable}. \textcite{lundberg2017unified} introduced SHAP (SHapley Additive exPlanations), a unified framework for interpreting model predictions based on cooperative game theory. This approach assigns each feature an importance value for a particular prediction, providing both local (individual prediction) and global (overall model) explanations. \textcite{lundberg2020local, molnar2020interpretable} extended their work by demonstrating how SHAP values can provide global understanding of tree-based models. \textcite{bussmann2021explainable} specifically examined explainable machine learning in credit risk management, arguing that SHAP and similar techniques could bridge the gap between model performance and regulatory requirements. Prior to SHAP, \textcite{ribeiro2016should} introduced LIME (Local Interpretable Model-agnostic Explanations), which provides local explanations for any classifier. \textcite{barredo2020explainable} provides a comprehensive taxonomy of XAI methods and their applications in responsible AI. In this research, we will use SHAP to gauge the interpretability across machine learning models.
+	The need for model interpretability in regulated industries has driven research in explainable AI. Industry reports from major consulting firms have highlighted the growing importance of explainable AI in financial services \parencite{deloitte2021ai, mckinsey2020future, pwc2021explainable}. FICO, a leading credit scoring company, has published guidance on implementing explainable machine learning for credit risk \parencite{fico2018explainable}. \textcite{lundberg2017unified} introduced SHAP (SHapley Additive exPlanations), a unified framework for interpreting model predictions based on cooperative game theory. This approach assigns each feature an importance value for a particular prediction, providing both local (individual prediction) and global (overall model) explanations. \textcite{lundberg2020local, molnar2020interpretable} extended their work by demonstrating how SHAP values can provide global understanding of tree-based models. \textcite{bussmann2021explainable} specifically examined explainable machine learning in credit risk management, arguing that SHAP and similar techniques could bridge the gap between model performance and regulatory requirements. Prior to SHAP, \textcite{ribeiro2016should} introduced LIME (Local Interpretable Model-agnostic Explanations), which provides local explanations for any classifier. \textcite{barredo2020explainable} provides a taxonomy of explanable AI methods and their applications in responsible AI. In this research, we will use SHAP to gauge the interpretability across machine learning models.
 
 	
 	% ============================================================================
@@ -221,7 +210,7 @@
 	Subsequently, the following steps were applied to preprocess the data:
 	
 	\begin{itemize}
-		\item \textbf{Train-Test Split:} The dataset was partitioned into training (80\%) and testing (20\%) subsets using stratified sampling to preserve the class distribution of the target variable (Default) in both sets. This is critical given the class imbalance present in the data (approximately 11.6\% default rate). A fixed random state was used to ensure reproducibility across all experiments.
+		\item \textbf{Train-Test Split:} The dataset was partitioned into training (80\%) and testing (20\%) subsets using stratified sampling to preserve the class distribution of the target variable (Default) in both sets. This is critical given the class imbalance present in the data (approximately 11.6\% default rate).
 
 		\item \textbf{Categorical Encoding:} One-hot encoding (dummy variable encoding) was applied to all categorical variables: Education (4 categories: High School, Bachelor's, Master's, PhD), EmploymentType (4 categories: Full-time, Part-time, Self-employed, Unemployed), MaritalStatus (3 categories: Single, Married, Divorced), HasMortgage (2 categories: Yes, No), HasDependents (2 categories: Yes, No), LoanPurpose (5 categories: Home, Auto, Education, Business, Other), and HasCoSigner (2 categories: Yes, No). One-hot encoding was chosen over label encoding to avoid introducing ordinal relationships where none exist, which could mislead tree-based and linear models.
 
@@ -229,7 +218,7 @@
 		\begin{equation}
 		z = \frac{x - \mu}{\sigma}
 		\end{equation}
-		where $\mu$ is the feature mean and $\sigma$ is the standard deviation, computed from the training set only to prevent data leakage. Standardization ensures all features have mean 0 and standard deviation 1, which is essential for gradient-based optimization in logistic regression and neural networks, and improves convergence speed. While tree-based models (XGBoost) are invariant to feature scaling, standardization was applied uniformly for consistency. 
+		where $\mu$ is the feature mean and $\sigma$ is the standard deviation. Standardization ensures all features have mean 0 and standard deviation 1, which is important for gradient-based optimization in logistic regression and neural networks, and improves convergence speed. 
 	\end{itemize}
 	After preprocessing, the original 16 predictor variables (9 numerical, 7 categorical) were transformed into 24 features: 9 standardized numerical features plus 15 binary indicator variables from one-hot encoding.
 	\subsection{Class Imbalance Considerations}\label{sec:imbalance}
@@ -255,7 +244,7 @@
 
 	\subsubsection{Moderately Interpretable Models}
 
-	\textbf{LightGBM:} A gradient boosting framework developed by Microsoft that uses histogram-based algorithms and leaf-wise tree growth for computational efficiency \parencite{ke2017lightgbm}. Unlike traditional gradient boosting methods that grow trees level-wise, LightGBM grows trees by splitting the leaf with the maximum delta loss, often resulting in deeper, more asymmetric trees that can capture complex interactions. 
+	\textbf{LightGBM:} A gradient boosting framework developed by Microsoft that uses histogram-based algorithms and leaf-wise tree growth for computational efficiency \parencite{ke2017lightgbm}. Unlike traditional gradient boosting methods that grow trees level-wise, LightGBM grows trees by splitting the leaf with the highest delta loss, often resulting in a deeper, more asymmetric trees that can capture more complex interactions. 
 
 	\noindent\textbf{XGBoost (Extreme Gradient Boosting):} A regularized gradient boosting implementation that has become the de facto standard for tabular data competitions and industry applications. XGBoost minimizes a regularized objective function:
 	\begin{equation}
@@ -285,18 +274,6 @@
 	
 	ROC-AUC was selected as the primary metric because it evaluates model performance across all classification thresholds and, as mentioned, is less sensitive to class imbalance than accuracy \parencite{he2009learning}.
 	
-
-	\subsection{SHAP Implementation}
-	
-	SHAP values were calculated for all models to enable fair comparison of explainability:
-	
-	\begin{itemize}
-		\item \textbf{LinearExplainer:} For logistic regression, computing exact SHAP values from model coefficients
-		\item \textbf{TreeExplainer:} For decision tree, random forest, and XGBoost, leveraging tree structure for efficient computation
-		\item \textbf{KernelExplainer:} For neural networks, using model-agnostic approximation on sampled background data
-	\end{itemize}
-	
-	SHAP analysis provides both global feature importance (which features matter most overall) and local explanations (why a specific prediction was made), enabling assessment of whether complex models can achieve sufficient explainability \parencite{lundberg2017unified}.
 	
 	% ============================================================================
 	% 5. RESULTS
@@ -304,7 +281,7 @@
 	
 	\section{Results}
 	
-	\subsection{Overall Model Performance}
+	\subsection{Model Performance}
 	
 	Table \ref{tab:model_performance} below presents the performance metrics for all four models. As discussed, ROC-AUC is the primary metric used to rank the models' performance. 
 
@@ -339,17 +316,17 @@
 	
 	\subsection{Model Explainability using SHAP}
 	
-	Shapley values explain how each feature contributes to the prediction by evaluating how various feature value combinations would affect the prediction outcome compared to the average prediction output \parencite{lundberg2017unified}. It would reveal the most important features for default prediction across all models. Despite differences in model architecture, there was [describe level of agreement/disagreement] across models regarding feature importance. To ensure a fair comparison of model explainability, SHAP values were calculated for all classifiers using the most appropriate and efficient method for each architecture: LinearExplainer was used for the Logistic Regression model to compute exact SHAP values directly from its coefficients; TreeExplainer was applied to the tree-based models (LightGBM and XGBoost), taking advantage of their underlying structure for efficient computation; and KernelExplainer provided a model-agnostic, sampled approximation of the SHAP values for the Neural Network. This comprehensive SHAP analysis facilitates both global feature importance assessment (determining which features are most impactful overall) to assess the interpretability of complex models.
+	Shapley values explain how each feature contributes to the prediction by evaluating how various feature value combinations would affect the prediction outcome compared to the average prediction output \parencite{lundberg2017unified}. It would reveal the most important features for default prediction across all models. To ensure a fair comparison of model explainability, SHAP values were calculated for all classifiers using the most appropriate and efficient method for each architecture: LinearExplainer was used for the Logistic Regression model to compute exact SHAP values directly from its coefficients; TreeExplainer was applied to the tree-based models (LightGBM and XGBoost), taking advantage of their underlying structure for efficient computation; and KernelExplainer provided a model-agnostic, sampled approximation of the SHAP values for the Neural Network. This comprehensive SHAP analysis facilitates both global feature importance assessment (determining which features are most impactful overall) to assess the interpretability of complex models.
 
 	The images below (Figure \ref{fig:shap_summary}) show the SHAP summary plots for each model, illustrating the impact of the top 20 features on model output. The color represents the feature value (red = high, blue = low), while the position on the x-axis indicates the SHAP value (positive values increase predicted default risk, negative values decrease it). 
 
 	\noindent The top five most important features across models were:
 	\begin{itemize}
-		\item \textbf{Age} (The age of the borrower) [Interpretation of its effect] is the most importance feature across all models.
-		\item \textbf{InterestRate} (The interest rate for the loan) [Interpretation of its effect]
-		\item \textbf{Income} (The annual income of the borrower) [Interpretation of its effect]
-		\item \textbf{MonthsEmployed} (The number of months the borrower has been employed) [Interpretation of its effect]
-		\item \textbf{LoanAmount} (The amount of money being borrowed) [Interpretation of its effect]
+		\item \textbf{Age} (The age of the borrower) is the most importance feature across all models. We see that younger borrowers (lower age values) tend to have higher SHAP values, indicating a higher predicted risk of default. This suggests that younger individuals may be perceived as riskier borrowers, possibly due to less established credit histories or financial stability.
+		\item \textbf{InterestRate} (The interest rate for the loan) is the second most important feature. Higher interest rates (red points) are associated with higher SHAP values, indicating that loans with higher interest rates contribute to an increased predicted risk of default. This aligns with the intuition that higher borrowing costs may strain a borrower's ability to repay.
+		\item \textbf{Income} (The annual income of the borrower) shows that lower income levels (blue points) correspond to higher SHAP values, suggesting that borrowers with lower incomes are more likely to default. This reflects the financial vulnerability of lower-income individuals in meeting debt obligations.
+		\item \textbf{MonthsEmployed} (The number of months the borrower has been employed) indicates that borrowers with shorter employment durations (blue points) have higher SHAP values, implying a higher risk of default. This may be due to job instability or lack of steady income.
+		\item \textbf{LoanAmount} (The amount of money being borrowed) shows that larger loan amounts (red points) are associated with higher SHAP values, indicating that borrowing larger sums increases the predicted risk of default. This could be due to the increased financial burden associated with repaying larger loans.
 	\end{itemize}
 	
 	% Add SHAP summary plots
@@ -380,15 +357,12 @@
 		\label{fig:shap_summary}
 	\end{figure}
 	
+	While the top features are rather straightforward. It is the consistency of them showing up across models that shows the promising utility of SHAP in providing sufficient explainability for complex models. Although the magnitude of their SHAP values varied. For instance, Age had a more pronounced impact in the Logistic Regression model compared to the Neural Network, where its influence was more moderate. This variation suggests that while certain features are universally important, their relative contributions can differ based on the model architecture and complexity.
 	
-	
-	[Discuss consistency or inconsistency across models, and what this means for explainability]
-	
-	\subsubsection{Consistency of Explanations}
-	
-	A critical question for regulatory compliance is whether different models provide consistent explanations for predictions. Comparing SHAP values across models revealed [describe findings about consistency]. This [supports/challenges] the hypothesis that SHAP can provide sufficient explainability for complex models.
-	
-	
+	\subsection{Limitations and Future Work}
+
+	Despite the methodology employed, the results of our findings are subject to two primary limitations. Firstly, the study relied on a public dataset comprising approximately \textbf{255,000 observations}, which is relatively small for effectively training and optimizing complex, high-capacity models like Neural Networks, especially given the inherent class imbalance in credit default prediction. This limited data size may have constrained the true predictive potential of the more complex models, leading to the observed close performance clustering near the simpler Logistic Regression baseline. Secondly, while several state-of-the-art models were employed, our neural network architecture and hyperparameter tuning were not exhaustively optimized compared to the state of the art tree-based models being used (LightGBM and XGBoost). The modest performance of the Neural Network (ROC-AUC 0.7586) suggests that with more extensive search (e.g., deeper layers, different activation functions, or longer training epochs), its performance might improve significantly, potentially widening the performance gap between tree-based methods and deep learning. Lastly, we noted that the feature sizes are rather limited (around 20), which may not fully mirror real-world production-scale datasets where there may be hundred's of features being used. In that instance, neural network models could perform better and the SHAP values could start diverging across models. Future research should address these limitations by validating the framework on larger, production-scale datasets and incorporating more advanced and fine-tuned machine learning techniques to ensure the models are fully optimized to their best performance.
+
 	
 	% ============================================================================
 	% 6. CONCLUSION
@@ -396,23 +370,13 @@
 	
 	\section{Conclusion}
 
-	This study set out to address fundamental questions about the application of machine learning to credit default prediction: which models perform best, is there performance gain being left on the table by financial institutions, and whether explainable AI techniques can bridge the performance-interpretability gap.
+	This study set out to address fundamental questions about the application of machine learning to credit default prediction: which models perform best, is there performance gain being left on the table by financial institutions due to regulatory requirements, and whether explainable AI techniques can be the bridge to understand 'black-box' models better.
 
-	\subsection{Summary of Key Findings}
+	Our analysis revealed several findings, starting with the model performance ranking. The XGBoost model achieved the highest predictive performance with an ROC-AUC of 0.759.  Surprisingly, our neural-network model had an ROC-AUC of 0.758, less than XGBoost and indicates that tree-based models may still provide the best performance compared to more advanced models. Furthermore, SHAP analysis successfully provided interpretable explanations across all models, with a high degree of consistency in the ranking of the most important features (e.g., age, income, interest rate). However, the ultimate sufficiency of SHAP for full regulatory compliance remains context-dependent and requires further industry clarification.
 
-	The empirical analysis revealed several important findings, starting with the model performance ranking. The \textbf{XGBoost} model achieved the highest predictive performance with an ROC-AUC of \textbf{0.7593}, demonstrating its superiority due to its advanced tree-boosting mechanism that effectively captured complex non-linear relationships within the features. In contrast, the highly interpretable baseline, Logistic Regression, achieved a competitive ROC-AUC of \textbf{0.7531}. This results in a performance gap between the best overall model (XGBoost) and the best highly interpretable model (Logistic Regression) of \textbf{0.0062} (\textbf{0.82\%} of XGBoost's AUC), which quantifies the tangible cost of choosing simplicity for regulatory compliance. Furthermore, SHAP analysis successfully provided interpretable explanations across all models, with a \textbf{high degree of consistency} in the ranking of the most important features (e.g., payment history was consistently top-ranked). However, the ultimate sufficiency of SHAP for full regulatory compliance remains context-dependent and requires further industry clarification.
+	This research makes several contributions to both academic literature and industry practice. Primarily, it explored the performance sacrifice required for interpretability in this domain by quantifying the minor ROC-AUC difference between complex and simple models. Secondly, the study evaluates SHAP across multiple model types (including Linear, Tree, and Neural Network), assessing its potential to enable the safe deployment of otherwise black-box models in a regulated financial environment.
 
-	\subsection{Contributions}
-
-	This research makes several contributions to both academic literature and industry practice. Primarily, it provides \textbf{empirical evidence of the specific performance sacrifice} required for interpretability in this domain by quantifying the minor ROC-AUC difference between complex and simple models. Secondly, the study \textbf{systematically evaluates SHAP across multiple model types}---including Linear, Tree, and Neural Network---assessing its potential to enable the safe deployment of otherwise black-box models in a regulated financial environment. Lastly, the work offers a \textbf{practical, replicable methodology} for financial institutions, allowing them to precisely evaluate their model choices based on the measured tradeoff between predictive accuracy, compliance risk, and interpretability.
-
-	\subsection{Practical Recommendations}
-
-	For financial institutions navigating the performance-interpretability tradeoff, a multi-pronged strategy is recommended. For a \textbf{conservative approach}, firms should deploy the highly interpretable models, such as \textbf{Logistic Regression or Decision Trees}, in scenarios where regulatory requirements are strict or uncertain, accepting the \textbf{0.82\%} performance cost as insurance against potential compliance risks. Conversely, an \textbf{innovative approach} involves utilizing high-performance ensemble models, like \textbf{XGBoost}, coupled with comprehensive SHAP analysis for generating robust explanations; this requires proactive engagement with regulators to establish the acceptability of SHAP-based adverse action notices. Finally, a \textbf{balanced approach} is achieved by adopting ensemble methods like \textbf{Random Forest or XGBoost} that offer strong performance (within 1\% of the best model) while maintaining moderate interpretability through reliable feature importance scores and the flexibility of SHAP-based local explanations.
-
-	\subsection{Final Thoughts}
-
-	The future of credit scoring lies not in choosing between performance and interpretability, but in developing methods that optimize both simultaneously. Explainable AI techniques like SHAP represent a promising step toward this goal, offering mathematical rigor and practical utility. However, the ultimate acceptability of these methods depends on regulatory evolution and demonstrated consumer understanding. As machine learning continues to advance, the credit industry must balance three competing imperatives: maximizing predictive accuracy to manage risk, maintaining transparency to satisfy regulations, and ensuring fairness to serve all consumers equitably. This study demonstrates that while tradeoffs exist, they need not be as stark as commonly assumed. With appropriate explanation methods, the \textbf{0.82\%} performance gap quantified in this research represents not a fixed constraint but rather the current state of technology and regulation; as explainability methods improve and regulatory frameworks evolve to accommodate them, this gap may narrow further. The path forward requires continued collaboration between researchers, practitioners, and regulators to develop credit scoring systems that are simultaneously accurate, interpretable, and fair.
+	For financial institutions navigating the performance-interpretability tradeoff, flexibility in approach is recommended. For a conservative approach, firms should deploy the highly interpretable models, such as Logistic Regression or Decision Trees (XGBoost), in scenarios where regulatory requirements are strict or uncertain. Conversely, an innovative approach involves utilizing more advanced complex models (neural network) coupled with SHAP analysis for generating explanations; this would require a strong partnership with regulators to establish the acceptability of SHAP-based adverse action (rejection) notices. The future of credit scoring lies not in choosing between performance and interpretability, but in developing methods that optimize both simultaneously. As machine learning continues to advance, the credit industry must balance three competing imperatives: maximizing predictive accuracy to manage risk, maintaining transparency to satisfy regulations, and ensuring fairness to serve all consumers equitably. The path forward requires continued collaboration between researchers, practitioners, and regulators to develop credit scoring systems that are simultaneously accurate, interpretable, and fair.
 	
 	% ============================================================================
 	% REFERENCES

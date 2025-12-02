@@ -166,9 +166,7 @@
       \field{journaltitle}{Information Fusion}
       \field{title}{Explainable Artificial Intelligence (XAI): Concepts, taxonomies, opportunities and challenges toward responsible AI}
       \field{volume}{58}
-      \field{year}{2020}
-      \field{pages}{82\bibrangedash 115}
-      \range{pages}{34}
+      \field{year}{2019}
     \endentry
     \entry{bellotti2013forecasting}{article}{}
       \name{author}{2}{}{%
@@ -404,12 +402,12 @@
       \field{labeltitlesource}{title}
       \field{title}{CFPB Acts to Protect the Public from Black-Box Credit Models Using Complex Algorithms}
       \field{type}{techreport}
-      \field{year}{2020}
+      \field{year}{2022}
       \verb{urlraw}
-      \verb https://www.consumerfinance.gov
+      \verb https://www.consumerfinance.gov/about-us/newsroom/cfpb-acts-to-protect-the-public-from-black-box-credit-models-using-complex-algorithms/
       \endverb
       \verb{url}
-      \verb https://www.consumerfinance.gov
+      \verb https://www.consumerfinance.gov/about-us/newsroom/cfpb-acts-to-protect-the-public-from-black-box-credit-models-using-complex-algorithms/
       \endverb
     \endentry
     \entry{deloitte2021ai}{report}{}
@@ -436,12 +434,12 @@
       \field{labeltitlesource}{title}
       \field{title}{AI and risk management: Innovating with confidence}
       \field{type}{techreport}
-      \field{year}{2021}
+      \field{year}{2018}
       \verb{urlraw}
-      \verb https://www2.deloitte.com
+      \verb https://www.deloitte.com/global/en/Industries/financial-services/perspectives/gx-ai-and-risk-management.html
       \endverb
       \verb{url}
-      \verb https://www2.deloitte.com
+      \verb https://www.deloitte.com/global/en/Industries/financial-services/perspectives/gx-ai-and-risk-management.html
       \endverb
     \endentry
     \entry{einav2013impact}{article}{}
@@ -486,6 +484,39 @@
       \field{pages}{249\bibrangedash 274}
       \range{pages}{26}
     \endentry
+    \entry{fico2018explainable}{report}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=f60920517ca37052193cfb3f42cd7da4}{%
+           family={{Fahner, Gerald}},
+           familyi={F\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {FICO}%
+      }
+      \strng{namehash}{f60920517ca37052193cfb3f42cd7da4}
+      \strng{fullhash}{f60920517ca37052193cfb3f42cd7da4}
+      \strng{bibnamehash}{f60920517ca37052193cfb3f42cd7da4}
+      \strng{authorbibnamehash}{f60920517ca37052193cfb3f42cd7da4}
+      \strng{authornamehash}{f60920517ca37052193cfb3f42cd7da4}
+      \strng{authorfullhash}{f60920517ca37052193cfb3f42cd7da4}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{White Paper}
+      \field{title}{Developing Transparent Credit Risk Scorecards More Effectively: An Explainable Artificial Intelligence Approach}
+      \field{type}{techreport}
+      \field{year}{2018}
+      \verb{urlraw}
+      \verb https://www.thinkmind.org/index.php?view=article&articleid=data_analytics_2018_1_30_60077
+      \endverb
+      \verb{url}
+      \verb https://www.thinkmind.org/index.php?view=article&articleid=data_analytics_2018_1_30_60077
+      \endverb
+    \endentry
     \entry{fawcett2006introduction}{article}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=9c15aa0b2a7683cefeaa12c991d0b1c2}{%
@@ -518,65 +549,6 @@
       \field{year}{2006}
       \field{pages}{861\bibrangedash 874}
       \range{pages}{14}
-    \endentry
-    \entry{federalreserve2019report}{report}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=3846f85a654c6e78b8ccad5651ce2e3d}{%
-           family={{Federal Reserve}},
-           familyi={F\bibinitperiod}}}%
-      }
-      \list{institution}{1}{%
-        {Board of Governors of the Federal Reserve System}%
-      }
-      \strng{namehash}{3846f85a654c6e78b8ccad5651ce2e3d}
-      \strng{fullhash}{3846f85a654c6e78b8ccad5651ce2e3d}
-      \strng{bibnamehash}{3846f85a654c6e78b8ccad5651ce2e3d}
-      \strng{authorbibnamehash}{3846f85a654c6e78b8ccad5651ce2e3d}
-      \strng{authornamehash}{3846f85a654c6e78b8ccad5651ce2e3d}
-      \strng{authorfullhash}{3846f85a654c6e78b8ccad5651ce2e3d}
-      \field{sortinit}{F}
-      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{Report to Congress on credit scoring and its effects on the availability and affordability of credit}
-      \field{type}{techreport}
-      \field{year}{2019}
-    \endentry
-    \entry{fico2022explainable}{report}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=55b4335e24c017ae40bbefabaa3f157a}{%
-           family={{FICO}},
-           familyi={F\bibinitperiod}}}%
-      }
-      \list{institution}{1}{%
-        {FICO}%
-      }
-      \strng{namehash}{55b4335e24c017ae40bbefabaa3f157a}
-      \strng{fullhash}{55b4335e24c017ae40bbefabaa3f157a}
-      \strng{bibnamehash}{55b4335e24c017ae40bbefabaa3f157a}
-      \strng{authorbibnamehash}{55b4335e24c017ae40bbefabaa3f157a}
-      \strng{authornamehash}{55b4335e24c017ae40bbefabaa3f157a}
-      \strng{authorfullhash}{55b4335e24c017ae40bbefabaa3f157a}
-      \field{sortinit}{F}
-      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{note}{White Paper}
-      \field{title}{Explainable machine learning for credit risk}
-      \field{type}{techreport}
-      \field{year}{2022}
-      \verb{urlraw}
-      \verb https://www.fico.com
-      \endverb
-      \verb{url}
-      \verb https://www.fico.com
-      \endverb
     \endentry
     \entry{hamori2018ensemble}{article}{}
       \name{author}{5}{}{%
@@ -1113,7 +1085,7 @@
       \field{labeltitlesource}{title}
       \field{title}{The future of risk management in the digital era}
       \field{type}{techreport}
-      \field{year}{2020}
+      \field{year}{2017}
       \verb{urlraw}
       \verb https://www.mckinsey.com
       \endverb
@@ -1179,12 +1151,31 @@
       \field{labeltitlesource}{title}
       \field{title}{Explainable AI: Driving business value through greater understanding}
       \field{type}{techreport}
-      \field{year}{2021}
+      \field{year}{2018}
       \verb{urlraw}
       \verb https://www.pwc.com
       \endverb
       \verb{url}
       \verb https://www.pwc.com
+      \endverb
+    \endentry
+    \entry{federalreserve2019report}{report}{}
+      \list{institution}{1}{%
+        {Board of Governors of the Federal Reserve System}%
+      }
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labeltitlesource}{title}
+      \field{title}{Report to Congress on credit scoring and its effects on the availability and affordability of credit}
+      \field{type}{techreport}
+      \field{year}{2007}
+      \verb{urlraw}
+      \verb https://www.federalreserve.gov/boarddocs/rptcongress/creditscore/creditscore.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.federalreserve.gov/boarddocs/rptcongress/creditscore/creditscore.pdf
       \endverb
     \endentry
     \entry{ribeiro2016should}{article}{}
@@ -1544,9 +1535,7 @@
       \field{journaltitle}{Information Fusion}
       \field{title}{Explainable Artificial Intelligence (XAI): Concepts, taxonomies, opportunities and challenges toward responsible AI}
       \field{volume}{58}
-      \field{year}{2020}
-      \field{pages}{82\bibrangedash 115}
-      \range{pages}{34}
+      \field{year}{2019}
     \endentry
     \entry{bellotti2013forecasting}{article}{}
       \name{author}{2}{}{%
@@ -1782,12 +1771,12 @@
       \field{labeltitlesource}{title}
       \field{title}{CFPB Acts to Protect the Public from Black-Box Credit Models Using Complex Algorithms}
       \field{type}{techreport}
-      \field{year}{2020}
+      \field{year}{2022}
       \verb{urlraw}
-      \verb https://www.consumerfinance.gov
+      \verb https://www.consumerfinance.gov/about-us/newsroom/cfpb-acts-to-protect-the-public-from-black-box-credit-models-using-complex-algorithms/
       \endverb
       \verb{url}
-      \verb https://www.consumerfinance.gov
+      \verb https://www.consumerfinance.gov/about-us/newsroom/cfpb-acts-to-protect-the-public-from-black-box-credit-models-using-complex-algorithms/
       \endverb
     \endentry
     \entry{deloitte2021ai}{report}{}
@@ -1814,12 +1803,12 @@
       \field{labeltitlesource}{title}
       \field{title}{AI and risk management: Innovating with confidence}
       \field{type}{techreport}
-      \field{year}{2021}
+      \field{year}{2018}
       \verb{urlraw}
-      \verb https://www2.deloitte.com
+      \verb https://www.deloitte.com/global/en/Industries/financial-services/perspectives/gx-ai-and-risk-management.html
       \endverb
       \verb{url}
-      \verb https://www2.deloitte.com
+      \verb https://www.deloitte.com/global/en/Industries/financial-services/perspectives/gx-ai-and-risk-management.html
       \endverb
     \endentry
     \entry{einav2013impact}{article}{}
@@ -1864,6 +1853,39 @@
       \field{pages}{249\bibrangedash 274}
       \range{pages}{26}
     \endentry
+    \entry{fico2018explainable}{report}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=f60920517ca37052193cfb3f42cd7da4}{%
+           family={{Fahner, Gerald}},
+           familyi={F\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {FICO}%
+      }
+      \strng{namehash}{f60920517ca37052193cfb3f42cd7da4}
+      \strng{fullhash}{f60920517ca37052193cfb3f42cd7da4}
+      \strng{bibnamehash}{f60920517ca37052193cfb3f42cd7da4}
+      \strng{authorbibnamehash}{f60920517ca37052193cfb3f42cd7da4}
+      \strng{authornamehash}{f60920517ca37052193cfb3f42cd7da4}
+      \strng{authorfullhash}{f60920517ca37052193cfb3f42cd7da4}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{White Paper}
+      \field{title}{Developing Transparent Credit Risk Scorecards More Effectively: An Explainable Artificial Intelligence Approach}
+      \field{type}{techreport}
+      \field{year}{2018}
+      \verb{urlraw}
+      \verb https://www.thinkmind.org/index.php?view=article&articleid=data_analytics_2018_1_30_60077
+      \endverb
+      \verb{url}
+      \verb https://www.thinkmind.org/index.php?view=article&articleid=data_analytics_2018_1_30_60077
+      \endverb
+    \endentry
     \entry{fawcett2006introduction}{article}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=9c15aa0b2a7683cefeaa12c991d0b1c2}{%
@@ -1896,65 +1918,6 @@
       \field{year}{2006}
       \field{pages}{861\bibrangedash 874}
       \range{pages}{14}
-    \endentry
-    \entry{federalreserve2019report}{report}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=3846f85a654c6e78b8ccad5651ce2e3d}{%
-           family={{Federal Reserve}},
-           familyi={F\bibinitperiod}}}%
-      }
-      \list{institution}{1}{%
-        {Board of Governors of the Federal Reserve System}%
-      }
-      \strng{namehash}{3846f85a654c6e78b8ccad5651ce2e3d}
-      \strng{fullhash}{3846f85a654c6e78b8ccad5651ce2e3d}
-      \strng{bibnamehash}{3846f85a654c6e78b8ccad5651ce2e3d}
-      \strng{authorbibnamehash}{3846f85a654c6e78b8ccad5651ce2e3d}
-      \strng{authornamehash}{3846f85a654c6e78b8ccad5651ce2e3d}
-      \strng{authorfullhash}{3846f85a654c6e78b8ccad5651ce2e3d}
-      \field{sortinit}{F}
-      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{Report to Congress on credit scoring and its effects on the availability and affordability of credit}
-      \field{type}{techreport}
-      \field{year}{2019}
-    \endentry
-    \entry{fico2022explainable}{report}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=55b4335e24c017ae40bbefabaa3f157a}{%
-           family={{FICO}},
-           familyi={F\bibinitperiod}}}%
-      }
-      \list{institution}{1}{%
-        {FICO}%
-      }
-      \strng{namehash}{55b4335e24c017ae40bbefabaa3f157a}
-      \strng{fullhash}{55b4335e24c017ae40bbefabaa3f157a}
-      \strng{bibnamehash}{55b4335e24c017ae40bbefabaa3f157a}
-      \strng{authorbibnamehash}{55b4335e24c017ae40bbefabaa3f157a}
-      \strng{authornamehash}{55b4335e24c017ae40bbefabaa3f157a}
-      \strng{authorfullhash}{55b4335e24c017ae40bbefabaa3f157a}
-      \field{sortinit}{F}
-      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{note}{White Paper}
-      \field{title}{Explainable machine learning for credit risk}
-      \field{type}{techreport}
-      \field{year}{2022}
-      \verb{urlraw}
-      \verb https://www.fico.com
-      \endverb
-      \verb{url}
-      \verb https://www.fico.com
-      \endverb
     \endentry
     \entry{hamori2018ensemble}{article}{}
       \name{author}{5}{}{%
@@ -2491,7 +2454,7 @@
       \field{labeltitlesource}{title}
       \field{title}{The future of risk management in the digital era}
       \field{type}{techreport}
-      \field{year}{2020}
+      \field{year}{2017}
       \verb{urlraw}
       \verb https://www.mckinsey.com
       \endverb
@@ -2557,12 +2520,31 @@
       \field{labeltitlesource}{title}
       \field{title}{Explainable AI: Driving business value through greater understanding}
       \field{type}{techreport}
-      \field{year}{2021}
+      \field{year}{2018}
       \verb{urlraw}
       \verb https://www.pwc.com
       \endverb
       \verb{url}
       \verb https://www.pwc.com
+      \endverb
+    \endentry
+    \entry{federalreserve2019report}{report}{}
+      \list{institution}{1}{%
+        {Board of Governors of the Federal Reserve System}%
+      }
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labeltitlesource}{title}
+      \field{title}{Report to Congress on credit scoring and its effects on the availability and affordability of credit}
+      \field{type}{techreport}
+      \field{year}{2007}
+      \verb{urlraw}
+      \verb https://www.federalreserve.gov/boarddocs/rptcongress/creditscore/creditscore.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.federalreserve.gov/boarddocs/rptcongress/creditscore/creditscore.pdf
       \endverb
     \endentry
     \entry{ribeiro2016should}{article}{}

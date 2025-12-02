@@ -3067,26 +3067,27 @@
     <bcf:citekey order="4" intorder="2">cfpb2020acts</bcf:citekey>
     <bcf:citekey order="5" intorder="1">einav2013impact</bcf:citekey>
     <bcf:citekey order="6" intorder="1">baesens2003benchmarking</bcf:citekey>
-    <bcf:citekey order="7" intorder="1">lessmann2015benchmarking</bcf:citekey>
-    <bcf:citekey order="7" intorder="2">brown2012experimental</bcf:citekey>
-    <bcf:citekey order="8" intorder="1">khandani2010consumer</bcf:citekey>
+    <bcf:citekey order="6" intorder="2">lessmann2015benchmarking</bcf:citekey>
+    <bcf:citekey order="6" intorder="3">brown2012experimental</bcf:citekey>
+    <bcf:citekey order="7" intorder="1">khandani2010consumer</bcf:citekey>
+    <bcf:citekey order="8" intorder="1">wang2011comparative</bcf:citekey>
     <bcf:citekey order="9" intorder="1">wang2011comparative</bcf:citekey>
-    <bcf:citekey order="10" intorder="1">wang2011comparative</bcf:citekey>
-    <bcf:citekey order="11" intorder="1">chen2016xgboost</bcf:citekey>
+    <bcf:citekey order="10" intorder="1">chen2016xgboost</bcf:citekey>
+    <bcf:citekey order="11" intorder="1">xia2017boosted</bcf:citekey>
     <bcf:citekey order="12" intorder="1">xia2017boosted</bcf:citekey>
-    <bcf:citekey order="13" intorder="1">xia2017boosted</bcf:citekey>
+    <bcf:citekey order="13" intorder="1">sirignano2016deep</bcf:citekey>
     <bcf:citekey order="14" intorder="1">sirignano2016deep</bcf:citekey>
-    <bcf:citekey order="15" intorder="1">sirignano2016deep</bcf:citekey>
+    <bcf:citekey order="15" intorder="1">hamori2018ensemble</bcf:citekey>
     <bcf:citekey order="16" intorder="1">hamori2018ensemble</bcf:citekey>
-    <bcf:citekey order="17" intorder="1">hamori2018ensemble</bcf:citekey>
+    <bcf:citekey order="17" intorder="1">kvamme2018predicting</bcf:citekey>
     <bcf:citekey order="18" intorder="1">kvamme2018predicting</bcf:citekey>
-    <bcf:citekey order="19" intorder="1">kvamme2018predicting</bcf:citekey>
+    <bcf:citekey order="19" intorder="1">bellotti2013forecasting</bcf:citekey>
     <bcf:citekey order="20" intorder="1">bellotti2013forecasting</bcf:citekey>
-    <bcf:citekey order="21" intorder="1">bellotti2013forecasting</bcf:citekey>
+    <bcf:citekey order="21" intorder="1">hurley2016credit</bcf:citekey>
     <bcf:citekey order="22" intorder="1">deloitte2021ai</bcf:citekey>
     <bcf:citekey order="22" intorder="2">mckinsey2020future</bcf:citekey>
     <bcf:citekey order="22" intorder="3">pwc2021explainable</bcf:citekey>
-    <bcf:citekey order="23" intorder="1">fico2022explainable</bcf:citekey>
+    <bcf:citekey order="23" intorder="1">fico2018explainable</bcf:citekey>
     <bcf:citekey order="24" intorder="1">lundberg2017unified</bcf:citekey>
     <bcf:citekey order="25" intorder="1">lundberg2017unified</bcf:citekey>
     <bcf:citekey order="26" intorder="1">lundberg2020local</bcf:citekey>
@@ -3105,7 +3106,6 @@
     <bcf:citekey order="37" intorder="1">ke2017lightgbm</bcf:citekey>
     <bcf:citekey order="38" intorder="1">he2009learning</bcf:citekey>
     <bcf:citekey order="39" intorder="1">lundberg2017unified</bcf:citekey>
-    <bcf:citekey order="40" intorder="1">lundberg2017unified</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="apa">
